@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yaron Koren"
+		]
+	},
+	"clonediff": "See clone diffs",
+	"clonediff-desc": "Provides a [[Special:CloneDiff|special page]] to allow administrators to ...",
+	"clonediff-docu": "Choose a namespace and/or category and then hit \"{{int:clonediff_continue}}\" to see all the differences in that set of pages between this wiki and the clone.",
+	"clonediff-nonamespace": "You must select either a namespace or a category (or both).",
+	"clonediff-categorysearch": "Replace only in category:",
+	"clonediff-choosepagesforimport": "Import any of the following pages:",
+	"clonediff-invertselections": "Invert selections",
+	"clonediff-import": "Import",
+	"clonediff-success": "{{PLURAL:$1|One page|$1 pages}} will be imported.",
+	"clonediff-nosuchcategory": "No category exists with the name \"$1\".",
+	"clonediff-return": "Return to form.",
+	"clonediff-continue": "Continue",
+	"clonediff-editsummary": "Import from another wiki via CloneDiff",
+	"right-clonediff": "Make string replacements on the entire wiki",
+	"action-clonediff": "make string replacements on the entire wiki"
+}

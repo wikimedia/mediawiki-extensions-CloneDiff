@@ -1,0 +1,47 @@
+{
+	"name": "CloneDiff",
+	"version": "0.1",
+	"author": [
+		"Yaron Koren"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:CloneDiff",
+	"descriptionmsg": "clonediff-desc",
+	"license-name": "GPL-2.0+",
+	"type": "specialpage",
+	"GroupPermissions": {
+		"sysop": {
+			"clonediff": true
+		}
+	},
+	"AvailableRights": [
+		"clonediff"
+	],
+	"SpecialPages": {
+		"CloneDiff": "SpecialCloneDiff"
+	},
+	"JobClasses": {
+		"importFromClone": "ImportFromCloneJob"
+	},
+	"MessagesDirs": {
+		"CloneDiff": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"CloneDiffAlias": "CloneDiff.alias.php"
+	},
+	"AutoloadClasses": {
+		"CloneDiffHooks": "CloneDiff.hooks.php",
+		"SpecialCloneDiff": "SpecialCloneDiff.php",
+		"ImportFromCloneJob": "ImportFromCloneJob.php"
+	},
+	"Hooks": {
+		"AdminLinks": [
+			"CloneDiffHooks::addToAdminLinks"
+		]
+	},
+	"config": {
+		"CloneDiffWikis": []
+	},
+	"manifest_version": 1
+}
