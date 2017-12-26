@@ -195,13 +195,13 @@ class SpecialCloneDiff extends SpecialPage {
 		return $remotePages;
 	}
 
-	function getAllRemotePagesInNamespace( $remoteAPIURL) {
+	function getAllRemotePagesInNamespace( $remoteAPIURL ) {
 		$remotePages = [];
 
 		$offset = 0;
 		do {
 			$apiURL = $remoteAPIURL . '?action=query&list=allpages&apnamespace=' .
-				$this->namespace . "&offset=$offset&limit=500&format=json";
+				$this->namespace . "&offset=$offset&aplimit=500&format=json";
 			$apiResult = Http::get( $apiURL );
 			if ( $apiResult == '' ) {
 				throw new MWException( "API at $remoteAPIURL is not responding." );
