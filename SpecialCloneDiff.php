@@ -65,6 +65,9 @@ class SpecialCloneDiff extends SpecialPage {
 			$out->addHTML( "<p><b>Remote wiki:</b> $dropdownHTML</p>" );
 		}
 
+		$out->addHTML( '<p>' . Html::label( 'Username', 'remote_username' ) . ' ' . Html::input( 'remote_username' ) . '</p>' );
+		$out->addHTML( '<p>' . Html::label( 'Password', 'remote_password' ) . ' ' . Html::input( 'remote_password' ) . '</p>' );
+
 		if ( is_null( $warning_msg ) ) {
 			$out->addWikiMsg( 'clonediff-docu' );
 		} else {
@@ -78,8 +81,7 @@ class SpecialCloneDiff extends SpecialPage {
 		$out->addHTML( '<p>' . Xml::checkLabel( 'Include pages that only exist remotely', "viewRemoteOnly", "viewRemoteOnly", true ) . '</p>' );
 
 		// The interface is heavily based on the one in Special:Search.
-		$namespaces = array( 'all' => '<em>All</em>' ) +
-			SearchEngine::searchableNamespaces();
+		$namespaces = SearchEngine::searchableNamespaces();
 		$nsText = "\n";
 		foreach ( $namespaces as $ns => $name ) {
 			if ( '' == $name ) {
@@ -88,9 +90,6 @@ class SpecialCloneDiff extends SpecialPage {
 			$name = str_replace( '_', ' ', $name );
 			$nsButton = '<label><input type="radio" name="namespace"' .
 				' value="' . $ns . '"';
-			if ( $ns === 'all' ) {
-				$nsButton .= ' checked="checked"';
-			}
 			$nsButton .= '" />' . $name . '</label>';
 			$nsText .= '<span style="float: left; width: 150px;">' .
 				$nsButton . "</span>\n";
@@ -173,15 +172,11 @@ class SpecialCloneDiff extends SpecialPage {
 			$offset = 0;
 			do {
 				$apiURL = $remoteAPIURL . '?action=query&list=categorymembers&cmtitle=Category:' . $category;
-				if ( $this->namespace !== 'all' ) {
-					$apiURL .= '&cmnamespace=' . $this->namespace;
-				}
 				$apiURL .= "&offset=$offset&limit=500&format=json";
-				$apiResult = Http::get( $apiURL );
-				if ( $apiResult == '' ) {
+				$apiResultData = $this->httpRequest( $apiURL );
+				if ( $apiResultData == '' ) {
 					throw new MWException( "API at $remoteAPIURL is not responding." );
 				}
-				$apiResultData = json_decode( $apiResult );
 				if ( isset( $apiResultData->error ) ) {
 					throw new MWException( "Error accessing remote API: code = " . $apiResultData->error->code . ", message = " . $apiResultData->error->info . "." );
 				}
@@ -202,11 +197,10 @@ class SpecialCloneDiff extends SpecialPage {
 		do {
 			$apiURL = $remoteAPIURL . '?action=query&list=allpages&apnamespace=' .
 				$this->namespace . "&offset=$offset&aplimit=500&format=json";
-			$apiResult = Http::get( $apiURL );
-			if ( $apiResult == '' ) {
+			$apiResultData = $this->httpRequest( $apiURL );
+			if ( $apiResultData == '' ) {
 				throw new MWException( "API at $remoteAPIURL is not responding." );
 			}
-			$apiResultData = json_decode( $apiResult );
 			if ( isset( $apiResultData->error ) ) {
 				throw new MWException( "Error accessing remote API: code = " . $apiResultData->error->code . ", message = " . $apiResultData->error->info . "." );
 			}
@@ -393,8 +387,10 @@ class SpecialCloneDiff extends SpecialPage {
 			str_replace( ' ', '_', implode( '|', $pagesInRemoteWiki ) ) .
 			'&rvprop=user|timestamp|content&format=json';
 
-		$apiResult = Http::get( $pageDataURL );
-		$apiResultData = json_decode( $apiResult );
+		$apiResultData = $this->httpRequest( $pageDataURL );
+		if ( $apiResultData == '' ) {
+			throw new MWException( "API at $remoteAPIURL is not responding." );
+		}
 		if ( isset( $apiResultData->query ) ) {
 			return get_object_vars( $apiResultData->query->pages );
 		} else {
@@ -498,7 +494,11 @@ class SpecialCloneDiff extends SpecialPage {
 		$user = $this->getUser();
 		$request = $this->getRequest();
 
-		$selectedWiki = $request->getVal( 'wikinum' );
+		if ( count( $wgCloneDiffWikis ) == 1 ) {
+			$selectedWiki = 0;
+		} else {
+			$selectedWiki = $request->getVal( 'remoteWiki' );
+		}
 		$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
 
 		$replacement_params['user_id'] = $user->getId();
@@ -540,5 +540,66 @@ class SpecialCloneDiff extends SpecialPage {
 
 	protected function getGroupName() {
 		return 'wiki';
+	}
+
+	protected function httpRequest( $url, $post_params = '' ) {
+		try {
+			$ch = curl_init();
+			//Change the user agent below suitably
+			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.9) Gecko/20071025 Firefox/2.0.0.9');
+			curl_setopt($ch, CURLOPT_URL, ($url));
+			curl_setopt($ch, CURLOPT_ENCODING, "UTF-8");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_COOKIEFILE, __DIR__ . "/cookies.tmp");
+			curl_setopt($ch, CURLOPT_COOKIEJAR, __DIR__ . "/cookies.tmp");
+			curl_setopt($ch, CURLOPT_COOKIESESSION, false);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			if (!empty($post_params)) {
+				curl_setopt($ch, CURLOPT_POST, 1);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $post_params);
+			}
+
+			$data = curl_exec($ch);
+
+			if (!$data) {
+				throw new MWException( "Error getting data from server: " . curl_error($ch) );
+			}
+
+			curl_close($ch);
+		} catch ( Exception $e ) {
+			throw new MWException( "Error getting data from server: " . $e->getMessage() );
+		}
+
+		$apiResultData = json_decode( $data );
+		if ( isset( $apiResultData->error ) && $apiResultData->error->code == 'readapidenied' ) {
+			global $wgCloneDiffWikis;
+			$request = $this->getRequest();
+			if ( count( $wgCloneDiffWikis ) == 1 ) {
+				$selectedWiki = 0;
+			} else {
+				$selectedWiki = $request->getVal( 'remoteWiki' );
+			}
+			$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
+			$login_token = '';
+			$token_result = $this->httpRequest( $apiURL . '?action=query&meta=tokens&type=login&format=json' );
+			$login_token = $token_result->query->tokens->logintoken;
+
+			$post_params = http_build_query(
+				array(
+					"lgname" => $request->getVal('remote_username'),
+					"lgpassword" => $request->getVal('remote_password'),
+					"lgtoken" => $login_token
+				)
+			);
+
+			$login_result = $this->httpRequest( $apiURL . "?action=login&format=json",  $post_params );
+			if ( $login_result->login->result == "Success" ) {
+				return $this->httpRequest( $url );
+			} else {
+				throw new MWException( "Login failed. Please check the entered username and password." );
+			}
+		}
+		return $apiResultData;
 	}
 }
