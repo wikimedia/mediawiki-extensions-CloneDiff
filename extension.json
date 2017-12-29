@@ -38,6 +38,9 @@
 	"Hooks": {
 		"AdminLinks": [
 			"CloneDiffHooks::addToAdminLinks"
+		],
+		"SkinBuildSidebar": [
+			"CloneDiffHooks::addToSidebar"
 		]
 	},
 	"config": {

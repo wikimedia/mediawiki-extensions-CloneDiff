@@ -19,6 +19,11 @@ class SpecialCloneDiff extends SpecialPage {
 		$request = $this->getRequest();
 		$out = $this->getOutput();
 
+		if ( $request->getVal( 'pageName' ) != '' ) {
+			$this->displayDiffsForm();
+			return;
+		}
+
 		if ( $request->getCheck( 'continue' ) ) {
 			$this->displayDiffsForm();
 			return;
@@ -173,7 +178,7 @@ class SpecialCloneDiff extends SpecialPage {
 			do {
 				$apiURL = $remoteAPIURL . '?action=query&list=categorymembers&cmtitle=Category:' . $category;
 				$apiURL .= "&offset=$offset&limit=500&format=json";
-				$apiResultData = $this->httpRequest( $apiURL );
+				$apiResultData = self::httpRequest( $apiURL );
 				if ( $apiResultData == '' ) {
 					throw new MWException( "API at $remoteAPIURL is not responding." );
 				}
@@ -197,7 +202,7 @@ class SpecialCloneDiff extends SpecialPage {
 		do {
 			$apiURL = $remoteAPIURL . '?action=query&list=allpages&apnamespace=' .
 				$this->namespace . "&offset=$offset&aplimit=500&format=json";
-			$apiResultData = $this->httpRequest( $apiURL );
+			$apiResultData = self::httpRequest( $apiURL );
 			if ( $apiResultData == '' ) {
 				throw new MWException( "API at $remoteAPIURL is not responding." );
 			}
@@ -231,35 +236,14 @@ class SpecialCloneDiff extends SpecialPage {
 		global $wgCloneDiffWikis;
 
 		wfProfileIn( __METHOD__ );
+
 		$out = $this->getOutput();
 		$request = $this->getRequest();
 
-		$this->categories = [];
-		$categoriesFromRequest = $request->getArray( 'categories' );
-		if ( is_array( $categoriesFromRequest ) ) {
-			foreach ( $request->getArray( 'categories' ) as $category => $val ) {
-				$this->categories[] = $category;
-			}
-		}
-		$this->namespace = $request->getVal( 'namespace' );
 		if ( count( $wgCloneDiffWikis ) == 1 ) {
 			$selectedWiki = 0;
 		} else {
 			$selectedWiki = $request->getVal( 'remoteWiki' );
-		}
-		$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
-
-		$viewPagesOnlyInLocal = $request->getCheck( 'viewLocalOnly' );
-		$viewPagesOnlyInRemote = $request->getCheck( 'viewRemoteOnly' );
-
-		$out->addModuleStyles( 'mediawiki.diff.styles' );
-
-		// Make sure that at least one namespace or one
-		// category has been selected.
-		if ( $this->namespace == null && count( $this->categories ) == 0 ) {
-			$this->displayInitialForm( 'clonediff-nonamespace' );
-			wfProfileOut( __METHOD__ );
-			return;
 		}
 
 		$formOpts = [
@@ -274,47 +258,24 @@ class SpecialCloneDiff extends SpecialPage {
 			Html::hidden( 'wikinum', $selectedWiki )
 		);
 
-		$localPages = $this->getLocalPages();
-
-		if ( count( $this->categories ) == 0 ) {
-			$remotePages = $this->getAllRemotePagesInNamespace( $apiURL );
-		} else {
-			$remotePages = $this->getAllRemotePagesInCategories( $apiURL );
-		}
-
-		$allPages = array();
-
-		if ( $viewPagesOnlyInLocal ) {
-			$pagesOnlyInLocal = array_diff( $localPages, $remotePages );
-			foreach ( $pagesOnlyInLocal as $pageName ) {
-				$allPages[$pageName] = self::LOCAL_ONLY;
-			}
-		}
-
-		if ( $viewPagesOnlyInRemote ) {
-			$pagesOnlyInRemote = array_diff( $remotePages, $localPages );
-			foreach ( $pagesOnlyInRemote as $pageName ) {
-				$allPages[$pageName] = self::REMOTE_ONLY;
-			}
-		}
-
-		$pagesInBoth = array_intersect( $localPages, $remotePages );
-		foreach ( $pagesInBoth as $pageName ) {
-			$allPages[$pageName] = self::IN_BOTH;
-		}
-
-		ksort( $allPages );
-
-		$allPageNames = array_keys( $allPages );
-
-		list( $limit, $offset ) = $request->getLimitOffset();
-		$this->showNavigation( count( $allPages ), $limit, $offset, true );
+		$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
 
 		$pagesToBeDisplayed = array();
-		for ( $i = $offset; $i < $offset + $limit && $i < count( $allPageNames ); $i++ ) {
-			$pageName = $allPageNames[$i];
-			$status = $allPages[$pageName];
-			$pagesToBeDisplayed[$pageName] = $status;
+		$showNavigation = true;
+		if ( $request->getVal( 'pageName' ) != '' ) {
+			$pagesToBeDisplayed[$request->getVal( 'pageName' )] = 2;
+			$showNavigation = false;
+		} else {
+			$pagesToBeDisplayed = $this->getPagesToBeDisplayed( $apiURL );
+			if ( !is_array( $pagesToBeDisplayed ) ) {
+				wfProfileOut( __METHOD__ );
+				return;
+			}
+		}
+
+		if ( $showNavigation ) {
+			list( $limit, $offset ) = $request->getLimitOffset();
+			$this->showNavigation( count( $pagesToBeDisplayed ), $limit, $offset, true );
 		}
 
 		$localAndRemoteData = $this->getLocalAndRemoteDataForPageSet( $apiURL, $pagesToBeDisplayed );
@@ -376,9 +337,84 @@ class SpecialCloneDiff extends SpecialPage {
 			Xml::closeElement( 'form' )
 		);
 
-		$this->showNavigation( count( $allPages ), $limit, $offset, false );
+		if ( $showNavigation ) {
+			$this->showNavigation( count( $pagesToBeDisplayed ), $limit, $offset, false );
+		}
+
+		$out->addModuleStyles( 'mediawiki.diff.styles' );
 
 		wfProfileOut( __METHOD__ );
+	}
+
+	function getPagesToBeDisplayed( $apiURL ) {
+		wfProfileIn( __METHOD__ );
+
+		$request = $this->getRequest();
+
+		$this->categories = [];
+		$categoriesFromRequest = $request->getArray( 'categories' );
+		if ( is_array( $categoriesFromRequest ) ) {
+			foreach ( $request->getArray( 'categories' ) as $category => $val ) {
+				$this->categories[] = $category;
+			}
+		}
+		$this->namespace = $request->getVal( 'namespace' );
+
+		$viewPagesOnlyInLocal = $request->getCheck( 'viewLocalOnly' );
+		$viewPagesOnlyInRemote = $request->getCheck( 'viewRemoteOnly' );
+
+		// Make sure that at least one namespace or one
+		// category has been selected.
+		if ( $this->namespace == null && count( $this->categories ) == 0 ) {
+			$this->displayInitialForm( 'clonediff-nonamespace' );
+			wfProfileOut( __METHOD__ );
+			return;
+		}
+		$localPages = $this->getLocalPages();
+
+		if ( count( $this->categories ) == 0 ) {
+			$remotePages = $this->getAllRemotePagesInNamespace( $apiURL );
+		} else {
+			$remotePages = $this->getAllRemotePagesInCategories( $apiURL );
+		}
+
+		$allPages = array();
+
+		if ( $viewPagesOnlyInLocal ) {
+			$pagesOnlyInLocal = array_diff( $localPages, $remotePages );
+			foreach ( $pagesOnlyInLocal as $pageName ) {
+				$allPages[$pageName] = self::LOCAL_ONLY;
+			}
+		}
+
+		if ( $viewPagesOnlyInRemote ) {
+			$pagesOnlyInRemote = array_diff( $remotePages, $localPages );
+			foreach ( $pagesOnlyInRemote as $pageName ) {
+				$allPages[$pageName] = self::REMOTE_ONLY;
+			}
+		}
+
+		$pagesInBoth = array_intersect( $localPages, $remotePages );
+		foreach ( $pagesInBoth as $pageName ) {
+			$allPages[$pageName] = self::IN_BOTH;
+		}
+
+		ksort( $allPages );
+
+		$allPageNames = array_keys( $allPages );
+
+		list( $limit, $offset ) = $request->getLimitOffset();
+
+		$pagesToBeDisplayed = array();
+		for ( $i = $offset; $i < $offset + $limit && $i < count( $allPageNames ); $i++ ) {
+			$pageName = $allPageNames[$i];
+			$status = $allPages[$pageName];
+			$pagesToBeDisplayed[$pageName] = $status;
+		}
+
+		wfProfileOut( __METHOD__ );
+
+		return $pagesToBeDisplayed;
 	}
 
 	function getRemoteDataForPageSet( $apiURL, $pagesInRemoteWiki ) {
@@ -387,7 +423,7 @@ class SpecialCloneDiff extends SpecialPage {
 			str_replace( ' ', '_', implode( '|', $pagesInRemoteWiki ) ) .
 			'&rvprop=user|timestamp|content&format=json';
 
-		$apiResultData = $this->httpRequest( $pageDataURL );
+		$apiResultData = self::httpRequest( $pageDataURL );
 		if ( $apiResultData == '' ) {
 			throw new MWException( "API at $remoteAPIURL is not responding." );
 		}
@@ -542,7 +578,7 @@ class SpecialCloneDiff extends SpecialPage {
 		return 'wiki';
 	}
 
-	protected function httpRequest( $url, $post_params = '' ) {
+	public static function httpRequest( $url, $post_params = '' ) {
 		try {
 			$ch = curl_init();
 			//Change the user agent below suitably
@@ -582,7 +618,7 @@ class SpecialCloneDiff extends SpecialPage {
 			}
 			$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
 			$login_token = '';
-			$token_result = $this->httpRequest( $apiURL . '?action=query&meta=tokens&type=login&format=json' );
+			$token_result = self::httpRequest( $apiURL . '?action=query&meta=tokens&type=login&format=json' );
 			$login_token = $token_result->query->tokens->logintoken;
 
 			$post_params = http_build_query(
@@ -593,9 +629,9 @@ class SpecialCloneDiff extends SpecialPage {
 				)
 			);
 
-			$login_result = $this->httpRequest( $apiURL . "?action=login&format=json",  $post_params );
+			$login_result = self::httpRequest( $apiURL . "?action=login&format=json",  $post_params );
 			if ( $login_result->login->result == "Success" ) {
-				return $this->httpRequest( $url );
+				return self::httpRequest( $url );
 			} else {
 				throw new MWException( "Login failed. Please check the entered username and password." );
 			}
