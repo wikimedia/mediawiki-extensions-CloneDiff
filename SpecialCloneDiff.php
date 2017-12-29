@@ -579,6 +579,7 @@ class SpecialCloneDiff extends SpecialPage {
 	}
 
 	public static function httpRequest( $url, $post_params = '' ) {
+		global $wgRequest;
 		try {
 			$ch = curl_init();
 			//Change the user agent below suitably
@@ -610,11 +611,10 @@ class SpecialCloneDiff extends SpecialPage {
 		$apiResultData = json_decode( $data );
 		if ( isset( $apiResultData->error ) && $apiResultData->error->code == 'readapidenied' ) {
 			global $wgCloneDiffWikis;
-			$request = $this->getRequest();
 			if ( count( $wgCloneDiffWikis ) == 1 ) {
 				$selectedWiki = 0;
 			} else {
-				$selectedWiki = $request->getVal( 'remoteWiki' );
+				$selectedWiki = $wgRequest->getVal( 'remoteWiki' );
 			}
 			$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
 			$login_token = '';
@@ -623,8 +623,8 @@ class SpecialCloneDiff extends SpecialPage {
 
 			$post_params = http_build_query(
 				array(
-					"lgname" => $request->getVal('remote_username'),
-					"lgpassword" => $request->getVal('remote_password'),
+					"lgname" => $wgRequest->getVal('remote_username'),
+					"lgpassword" => $wgRequest->getVal('remote_password'),
 					"lgtoken" => $login_token
 				)
 			);
