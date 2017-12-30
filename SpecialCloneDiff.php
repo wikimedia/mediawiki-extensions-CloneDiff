@@ -616,6 +616,9 @@ class SpecialCloneDiff extends SpecialPage {
 			} else {
 				$selectedWiki = $wgRequest->getVal( 'remoteWiki' );
 			}
+			if ( $selectedWiki == '' ) {
+				return $apiResultData;
+			}
 			$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
 			$login_token = '';
 			$token_result = self::httpRequest( $apiURL . '?action=query&meta=tokens&type=login&format=json' );
