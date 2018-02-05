@@ -592,8 +592,8 @@ class SpecialCloneDiff extends SpecialPage {
 			curl_setopt($ch, CURLOPT_COOKIESESSION, false);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($ch, CURLOPT_POST, 1);
 			if (!empty($post_params)) {
-				curl_setopt($ch, CURLOPT_POST, 1);
 				curl_setopt($ch, CURLOPT_POSTFIELDS, $post_params);
 			}
 
@@ -621,8 +621,14 @@ class SpecialCloneDiff extends SpecialPage {
 			}
 			$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
 			$login_token = '';
-			$token_result = self::httpRequest( $apiURL . '?action=query&meta=tokens&type=login&format=json' );
-			$login_token = $token_result->query->tokens->logintoken;
+			$token_result = self::httpRequest( $apiURL . '?action=login&format=json&lgname=' . $wgRequest->getVal('remote_username') );
+			try {
+				$login_token = $token_result->login->token;
+			} catch( Exception $e ) {
+				// Try the new token fetching mechanism
+				$token_result = self::httpRequest( $apiURL . '?action=query&meta=tokens&type=login&format=json' );
+				$login_token = $token_result->query->tokens->logintoken;
+			}
 
 			$post_params = http_build_query(
 				array(
