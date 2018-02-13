@@ -36,6 +36,9 @@ class SpecialCloneDiff extends SpecialPage {
 
 		// This must be the starting screen - show the form.
 		$this->displayInitialForm();
+		if ( file_exists(__DIR__ . "/cookies.tmp") ) {
+			unlink( __DIR__ . "/cookies.tmp" );
+		}
 	}
 
 	function displayInitialForm( $warning_msg = null ) {
@@ -71,7 +74,7 @@ class SpecialCloneDiff extends SpecialPage {
 		}
 
 		$out->addHTML( '<p>' . Html::label( 'Username', 'remote_username' ) . ' ' . Html::input( 'remote_username' ) . '</p>' );
-		$out->addHTML( '<p>' . Html::label( 'Password', 'remote_password' ) . ' ' . Html::input( 'remote_password' ) . '</p>' );
+		$out->addHTML( '<p>' . Html::label( 'Password', 'remote_password' ) . ' ' . Html::input( 'remote_password', '', 'password' ) . '</p>' );
 
 		if ( is_null( $warning_msg ) ) {
 			$out->addWikiMsg( 'clonediff-docu' );
@@ -621,7 +624,7 @@ class SpecialCloneDiff extends SpecialPage {
 			}
 			$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
 			$login_token = '';
-			$token_result = self::httpRequest( $apiURL . '?action=login&format=json&lgname=' . $wgRequest->getVal('remote_username') );
+			$token_result = self::httpRequest( $apiURL . '?action=login&format=json&lgname=' . urlencode( $wgRequest->getVal('remote_username') ) );
 			try {
 				$login_token = $token_result->login->token;
 			} catch( Exception $e ) {
