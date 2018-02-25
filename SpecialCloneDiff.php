@@ -238,8 +238,6 @@ class SpecialCloneDiff extends SpecialPage {
 	function displayDiffsForm() {
 		global $wgCloneDiffWikis;
 
-		wfProfileIn( __METHOD__ );
-
 		$out = $this->getOutput();
 		$request = $this->getRequest();
 
@@ -271,7 +269,6 @@ class SpecialCloneDiff extends SpecialPage {
 		} else {
 			$pagesToBeDisplayed = $this->getPagesToBeDisplayed( $apiURL );
 			if ( !is_array( $pagesToBeDisplayed ) ) {
-				wfProfileOut( __METHOD__ );
 				return;
 			}
 		}
@@ -345,13 +342,9 @@ class SpecialCloneDiff extends SpecialPage {
 		}
 
 		$out->addModuleStyles( 'mediawiki.diff.styles' );
-
-		wfProfileOut( __METHOD__ );
 	}
 
 	function getPagesToBeDisplayed( $apiURL ) {
-		wfProfileIn( __METHOD__ );
-
 		$request = $this->getRequest();
 
 		$this->categories = [];
@@ -370,7 +363,6 @@ class SpecialCloneDiff extends SpecialPage {
 		// category has been selected.
 		if ( $this->namespace == null && count( $this->categories ) == 0 ) {
 			$this->displayInitialForm( 'clonediff-nonamespace' );
-			wfProfileOut( __METHOD__ );
 			return;
 		}
 		$localPages = $this->getLocalPages();
@@ -414,8 +406,6 @@ class SpecialCloneDiff extends SpecialPage {
 			$status = $allPages[$pageName];
 			$pagesToBeDisplayed[$pageName] = $status;
 		}
-
-		wfProfileOut( __METHOD__ );
 
 		return $pagesToBeDisplayed;
 	}
@@ -527,8 +517,6 @@ class SpecialCloneDiff extends SpecialPage {
 	function importAndDisplayResults() {
 		global $wgCloneDiffWikis;
 
-		wfProfileIn( __METHOD__ );
-
 		$out = $this->getOutput();
 		$user = $this->getUser();
 		$request = $this->getRequest();
@@ -573,8 +561,6 @@ class SpecialCloneDiff extends SpecialPage {
 			Linker::link( $this->getTitle(),
 				$this->msg( 'clonediff-return' )->escaped() )
 		);
-
-		wfProfileOut( __METHOD__ );
 	}
 
 	protected function getGroupName() {
