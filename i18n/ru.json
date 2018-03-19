@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"EdwardGeneralov"
+		]
+	},
+	"clonediff": "См. клон дифференциалы",
+	"clonediff-desc": "Предоставляет [[Special:CloneDiff|специальная страница]] чтобы администраторы могли просматривать различия между страницами в текущей вики и другой вики и импортировать страницы из другой вики.",
+	"clonediff-docu": "Выберите пространство имен и/или категорию, а затем нажмите \"{{int:clonediff-continue}}\" чтобы увидеть все различия в этом наборе страниц между этой вики и клоном.",
+	"clonediff-nonamespace": "Вы должны выбрать либо пространство имен, либо категорию (или и то и другое).",
+	"clonediff-categorysearch": "Заменить только в категории:",
+	"clonediff-choosepagesforimport": "Импортируйте любую из следующих страниц:",
+	"clonediff-invertselections": "Инвертировать выбор",
+	"clonediff-import": "Импорт",
+	"clonediff-success": "{{PLURAL:$1|Одна страница|$1 страницы}} будут импортированы.",
+	"clonediff-nosuchcategory": "Нет категории с именем \"$1\".",
+	"clonediff-return": "Вернуться к форме.",
+	"clonediff-continue": "Продолжение",
+	"clonediff-editsummary": "Импорт из другой вики через CloneDiff",
+	"right-clonediff": "Сделать замену строк на всю вики",
+	"action-clonediff": "сделать замену строк на всю вики"
+}
