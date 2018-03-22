@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Chrumps"
+		]
+	},
+	"clonediff-nonamespace": "Musisz wybrać przestrzeń nazw lub kategorię (albo obie).",
+	"clonediff-categorysearch": "Zamień tylko w kategorii:",
+	"clonediff-import": "Importuj",
+	"clonediff-success": "{{PLURAL:$1|Zostanie zaimportowana jedna strona|Zostaną zaimportowane $1 strony|Zostanie zaimportowanych $1 stron}}.",
+	"clonediff-nosuchcategory": "Nie istnieje kategoria o nazwie „$1”.",
+	"clonediff-return": "Powrót do formularza.",
+	"clonediff-continue": "Kontynuuj"
+}

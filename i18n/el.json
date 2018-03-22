@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nikosgranturismogt"
+		]
+	},
+	"clonediff-categorysearch": "Αντικατάσταση μόνο στην κατηγορία:",
+	"clonediff-choosepagesforimport": "Εισαγωγή κάποιας από τις ακόλουθες σελίδες:",
+	"clonediff-invertselections": "Αναστροφή επιλογών",
+	"clonediff-import": "Εισαγωγή",
+	"clonediff-success": "{{PLURAL:$1|Μια σελίδα|$1 σελίδες}} θα εισηχθούν.",
+	"clonediff-nosuchcategory": "Δεν υπάρχει κατηγορία με όνομα «$1».",
+	"clonediff-return": "Επιστροφή στη φόρμα.",
+	"clonediff-continue": "Συνέχεια",
+	"clonediff-editsummary": "Εισαγωγή από άλλο βίκι μέσω του CloneDiff",
+	"right-clonediff": "Να γίνουν αντικαταστάσεις συμβολοσειρών σε ολόκληρο το βίκι",
+	"action-clonediff": "κάνετε αντικαταστάσεις συμβολοσειρών σε ολόκληρο το βίκι"
+}

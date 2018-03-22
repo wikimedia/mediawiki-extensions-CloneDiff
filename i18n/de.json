@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Metalhead64"
+		]
+	},
+	"clonediff": "Klon-Unterschiede ansehen",
+	"clonediff-desc": "Stellt eine [[Special:CloneDiff|Spezialseite]] zur Verfügung, die es Administratoren erlaubt, Unterschiede zwischen Seiten im aktuellen und einem anderen Wiki anzusehen sowie Seiten von dem anderen Wiki zu importieren.",
+	"clonediff-docu": "Wähle einen Namensraum und/oder eine Kategorie aus und klicke dann auf „{{int:clonediff-continue}}“, um all die Unterschiede in diesem Seitensatz zwischen diesem Wiki und dem Klon anzusehen.",
+	"clonediff-nonamespace": "Du musst entweder einen Namensraum oder eine Kategorie auswählen (oder beides).",
+	"clonediff-categorysearch": "Nur in Kategorie ersetzen:",
+	"clonediff-choosepagesforimport": "Eine der folgenden Seiten importieren:",
+	"clonediff-invertselections": "Auswahlen umkehren",
+	"clonediff-import": "Importieren",
+	"clonediff-success": "{{PLURAL:$1|Eine Seite wird|$1 Seiten werden}} importiert.",
+	"clonediff-nosuchcategory": "Es ist keine Kategorie mit dem Namen „$1“ vorhanden.",
+	"clonediff-return": "Zurück zum Formular.",
+	"clonediff-continue": "Fortfahren",
+	"clonediff-editsummary": "Aus einem anderen Wiki über CloneDiff importieren",
+	"right-clonediff": "Zeichenfolge-Ersetzungen im gesamten Wiki durchführen",
+	"action-clonediff": "Zeichenfolge-Ersetzungen im gesamten Wiki durchzuführen"
+}

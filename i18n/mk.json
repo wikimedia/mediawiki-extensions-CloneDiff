@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"clonediff": "Преглед на разлики во клоновите",
+	"clonediff-desc": "Дава [[Special:CloneDiff|службена страница]] која им овозможува на администраторите да прегледуваат разлики помеѓу страници на тековното и друго вики, и да увезуваат страници од другото вики.",
+	"clonediff-docu": "Изберете именски простор и/или категорија, па стиснете на „{{int:clonediff-continue}}“ за да ги видите сите разлики во тие страници помеѓу ова вики и клонот.",
+	"clonediff-nonamespace": "Мора да изберете именски простор или категорија (или обете).",
+	"clonediff-categorysearch": "Замени само во категоријата:",
+	"clonediff-choosepagesforimport": "Увези некоја од следниве страници:",
+	"clonediff-invertselections": "Обратен избор",
+	"clonediff-import": "Увези",
+	"clonediff-success": "Ќе се {{PLURAL:$1|увезе една страница|увезат $1 страници}}.",
+	"clonediff-nosuchcategory": "Не постои категорија по име „$1“",
+	"clonediff-return": "Назад кон образецот.",
+	"clonediff-continue": "Продолжи",
+	"clonediff-editsummary": "Увоз од друго вики со Разлики во клоновите",
+	"right-clonediff": "Вршење замена на низи во целото вики",
+	"action-clonediff": "вршење замена на низи во целото вики"
+}
