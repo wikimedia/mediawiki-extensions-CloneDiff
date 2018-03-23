@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"clonediff-docu": "이름공간 및 분류를 선택한 다음 \"{{int:clonediff-continue}}\"를 누르면 위키와 복제 위키 간 문서들 모임 간의 차이를 볼 수 있습니다.",
+	"clonediff-nonamespace": "이름공간이나 분류를 (또는 둘 다) 선택해야 합니다.",
+	"clonediff-categorysearch": "다음 분류에서만 바꾸기:",
+	"clonediff-choosepagesforimport": "다음 문서 중에 가져오기:",
+	"clonediff-invertselections": "선택 반전",
+	"clonediff-import": "가져오기",
+	"clonediff-success": "{{PLURAL:$1|하나의 문서|$1개의 문서}}를 가져옵니다.",
+	"clonediff-nosuchcategory": "\"$1\" 이름을 포함하고 있는 분류가 없습니다.",
+	"clonediff-return": "양식으로 돌아갑니다.",
+	"clonediff-continue": "계속",
+	"clonediff-editsummary": "CloneDiff를 통해 다른 위키에서 가져오기",
+	"right-clonediff": "위키 전체에서 문자열 찾아 바꾸기",
+	"action-clonediff": "문자열 찾아 바꾸기를 위키 전체에 수행"
+}

@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"clonediff-categorysearch": "Sostituire solo nella categoria:",
+	"clonediff-invertselections": "Inverti selezione",
+	"clonediff-import": "Importa",
+	"clonediff-success": "{{PLURAL:$1|Una pagina|$1 pagine}} saranno importate.",
+	"clonediff-nosuchcategory": "Non esiste categoria con il nome \"$1\".",
+	"clonediff-continue": "Continua",
+	"right-clonediff": "Esegue sostituzioni di testo in tutto il sito",
+	"action-clonediff": "eseguire sostituzioni di testo in tutto il sito"
+}
