@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
 	"clonediff": "{{doc-special}}",
 	"clonediff-desc": "{{desc|name=CloneDiff|url=https://www.mediawiki.org/wiki/Extension:CloneDiff}}",
 	"clonediff-docu": "Used as description message on a special page",
@@ -7,11 +11,11 @@
 	"clonediff-categorysearch": "Used as label",
 	"clonediff-choosepagesforimport": "Used as label",
 	"clonediff-invertselections": "Used as label",
-	"clonediff-import": "Used as button",
+	"clonediff-import": "Used as button\n{{Identical|Import}}",
 	"clonediff-success": "Used as success message",
 	"clonediff-nosuchcategory": "Used as error message",
 	"clonediff-return": "Used as link text",
-	"clonediff-continue": "Used as button",
+	"clonediff-continue": "Used as button\n{{Identical|Continue}}",
 	"clonediff-editsummary": "Used as edit summary",
 	"right-clonediff": "{{doc-right|clonediff}}",
 	"action-clonediff": "{{doc-action|clonediff}}"

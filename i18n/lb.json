@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Robby"
+		]
+	},
+	"clonediff-categorysearch": "Nëmmen an der Kategorie ersetzen:",
+	"clonediff-import": "Importéieren",
+	"clonediff-success": "{{PLURAL:$1|Eng Säit gëtt|$1 Säite ginn}} importéiert.",
+	"clonediff-nosuchcategory": "Et gëtt keng Kategorie mam Numm \"$1\".",
+	"clonediff-return": "Zréck op de Formulaire.",
+	"clonediff-continue": "Virufueren"
+}

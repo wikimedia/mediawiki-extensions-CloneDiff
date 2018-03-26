@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"WikiPhoenix"
+		]
+	},
+	"clonediff": "Se diffar för kloner",
+	"clonediff-desc": "Tillhandahåller en [[Special:CloneDiff|specialsida]] för att låta administratörer se skillnader mellan sidor i nuvarande wiki och en annan wiki, samt att importera sidor från den andra wikin.",
+	"clonediff-docu": "Välj en namnrymd och/eller kategori och klicka sedan på \"{{int:clonediff-continue}}\" för att se alla skillnader i denna sidgrupp mellan denna wiki och klonen.",
+	"clonediff-nonamespace": "Du måste antingen välja en namnrymd eller en kategori (eller båda).",
+	"clonediff-categorysearch": "Ersätt endast i kategori:",
+	"clonediff-choosepagesforimport": "Importera någon av följande sidor:",
+	"clonediff-invertselections": "Invertera val",
+	"clonediff-import": "Importera",
+	"clonediff-success": "{{PLURAL:$1|En sida |$1 sidor}} kommer att importeras.",
+	"clonediff-nosuchcategory": "Det finns inte någon kategori med namnet \"$1\".",
+	"clonediff-return": "Tillbaka till formuläret.",
+	"clonediff-continue": "Fortsätt",
+	"clonediff-editsummary": "Importera från en annan wiki via CloneDiff",
+	"right-clonediff": "Genomför textersättningar på hela wikin",
+	"action-clonediff": "genomför textersättningar på hela wikin"
+}

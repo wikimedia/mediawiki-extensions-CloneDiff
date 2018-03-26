@@ -1,0 +1,17 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fitoschido"
+		]
+	},
+	"clonediff-docu": "Escoge un espacio de nombres o una categoría y pulsa en «{{int:clonediff-continue}}» para ver todas las diferencias en ese conjunto de páginas entre este wiki y el clon.",
+	"clonediff-nonamespace": "Debes seleccionar o un espacio de nombres o una categoría (o ambos).",
+	"clonediff-categorysearch": "Reemplazar únicamente en la categoría:",
+	"clonediff-choosepagesforimport": "Importar cualquiera de las páginas siguientes:",
+	"clonediff-invertselections": "Invertir selecciones",
+	"clonediff-import": "Importar",
+	"clonediff-success": "Se {{PLURAL:$1|importará una página|importarán $1 páginas}}.",
+	"clonediff-nosuchcategory": "No existe ninguna categoría denominada «$1».",
+	"clonediff-return": "Volver al formulario.",
+	"clonediff-continue": "Continuar"
+}

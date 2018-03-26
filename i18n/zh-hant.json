@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"clonediff": "查看複製的差異",
+	"clonediff-desc": "提供[[Special:CloneDiff|特殊頁面]]來允許管理者檢視在目前 wiki 與其它 wiki 的頁面之間差異，以及從其它 wiki 來匯入頁面。",
+	"clonediff-docu": "挑選名稱空間以及/或分類，然後點擊「{{int:clonediff-continue}}」來查看在此 wiki 與複製之間的頁面集合所有差異。",
+	"clonediff-nonamespace": "您必須選擇名稱空間或分類兩者其一（或是兩者都要）。",
+	"clonediff-categorysearch": "僅在此分類取代：",
+	"clonediff-choosepagesforimport": "匯入任何以下頁面：",
+	"clonediff-invertselections": "反向選擇",
+	"clonediff-import": "匯入",
+	"clonediff-success": "將會匯入{{PLURAL:$1| 1 個頁面| $1 個頁面}}。",
+	"clonediff-nosuchcategory": "沒有任何名稱為「$1」的分類。",
+	"clonediff-return": "返回表單。",
+	"clonediff-continue": "繼續",
+	"clonediff-editsummary": "透過 CloneDiff 從其它 wiki 匯入",
+	"right-clonediff": "對整個 wiki 進行字串取代。",
+	"action-clonediff": "對整個 wiki 進行字串取代。"
+}
