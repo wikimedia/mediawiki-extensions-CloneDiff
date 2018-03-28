@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Patio"
+		]
+	},
+	"clonediff": "Zie kloonverschillen",
+	"clonediff-desc": "Verzorg een  [[Special:CloneDiff|speciaal blad]] om admins toe te staan verschillen te zien tussen deze en een andere wiki, en pagina's uit de andere in te voeren.",
+	"clonediff-docu": "Kies naamruimte en/of categorie en druk dan \"{{int:clonediff-continue}}\" om alle verschillen in dat stel pagina's te zien tussen deze wiki en haar kloon.",
+	"clonediff-nonamespace": "U dient een naamruimte en/of een categorie te selecteren.",
+	"clonediff-categorysearch": "Vervang alleen in categorie:",
+	"clonediff-choosepagesforimport": "Voer enige van de volgende pagina's in:",
+	"clonediff-invertselections": "Draai selecties om",
+	"clonediff-import": "Invoeren",
+	"clonediff-success": "{{PLURAL:$1|Één pagina zal|$1 pagina's zullen}} worden ingevoerd.",
+	"clonediff-nosuchcategory": "Er is geen categorie met de naam \"$1\".",
+	"clonediff-return": "Terug naar formulier.",
+	"clonediff-continue": "Ga door",
+	"clonediff-editsummary": "Van een andere wiki invoeren via CloneDiff",
+	"right-clonediff": "Vervang teksten op gehele wiki",
+	"action-clonediff": "vervang teksten op gehele wiki"
+}
