@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eduardo Addad de Oliveira"
+		]
+	},
+	"clonediff": "Diferenças em clones",
+	"clonediff-desc": "Fornece uma [[Special:CloneDiff|página especial]] para os administradores verem as diferenças entre as páginas desta wiki e de outra wiki, e para importar páginas da outra wiki.",
+	"clonediff-docu": "Escolha um espaço nominal, uma categoria, ou ambos, e clique em \"{{int:clonediff-continue}}\" para ver todas as diferenças nesse conjunto de páginas entre esta wiki e o clone.",
+	"clonediff-nonamespace": "Tem de selecionar um espaço nominal ou uma categoria (ou ambos).",
+	"clonediff-categorysearch": "Substituir apenas na categoria:",
+	"clonediff-choosepagesforimport": "Importar qualquer das seguintes páginas:",
+	"clonediff-invertselections": "Inverter seleções",
+	"clonediff-import": "Importar",
+	"clonediff-success": "{{PLURAL:$1|Será importada uma página|Serão importadas $1 páginas}}.",
+	"clonediff-nosuchcategory": "Não existe nenhuma categoria com o nome \"$1\".",
+	"clonediff-return": "Voltar ao formulário.",
+	"clonediff-continue": "Continuar",
+	"clonediff-editsummary": "Importar de outra wiki através das Diferenças em Clones.",
+	"right-clonediff": "Fazer substituições de texto em toda a wiki",
+	"action-clonediff": "executar substituições de cadeias de caracteres em toda a wiki"
+}
