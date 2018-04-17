@@ -4,5 +4,10 @@
 			"Aftabuzzaman"
 		]
 	},
-	"clonediff-continue": "অব্যাহত"
+	"clonediff": "ক্লোন পার্থক্য দেখুন",
+	"clonediff-import": "আমদানি করুন",
+	"clonediff-success": "{{PLURAL:$1|একটি পাতা|$1টি পাতা}} আমদানি করা হবে।",
+	"clonediff-return": "ফর্মে ফিরে যান।",
+	"clonediff-continue": "অব্যাহত",
+	"clonediff-editsummary": "CloneDiff-এর মাধ্যমে অন্য উইকি থেকে আমদানি করা হয়েছে"
 }
