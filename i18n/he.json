@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Guycn2"
+		]
+	},
+	"clonediff": "צפייה בהבדלים מיובאים בין גרסאות",
+	"clonediff-desc": "אספקת [[Special:CloneDiff|דף מיוחד]] המאפשר למפעילי מערכת לצפות בהבדלים בין גרסאות באתר הוויקי הנוכחי ובאתר ויקי אחר, ולייבא דפים מתוך אתר הוויקי האחר.",
+	"clonediff-docu": "יש לבחור מרחב שם ו/או קטגוריה ולאחר מכן ללחוץ על \"{{int:clonediff-continue}}\" כדי לצפות בכל ההבדלים בדפים האלה בין אתר הוויקי הזה לבין אתר הוויקי המיועד.",
+	"clonediff-nonamespace": "יש לבחור מרחב שם ו/או קטגוריה.",
+	"clonediff-categorysearch": "החלפה בקטגוריה הבאה בלבד:",
+	"clonediff-choosepagesforimport": "ייבוא הדפים הבאים:",
+	"clonediff-invertselections": "הפיכת הבחירה",
+	"clonediff-import": "ייבוא",
+	"clonediff-success": "{{PLURAL:$1|דף אחד ייובא|$1 דפים ייובאו}}.",
+	"clonediff-nosuchcategory": "לא קיימת קטגוריה בשם \"$1\".",
+	"clonediff-return": "חזרה לטופס.",
+	"clonediff-continue": "המשך",
+	"clonediff-editsummary": "ייבוא מאתר ויקי אחר באמצעות כלי ייבוא ההבדלים בין הגרסאות",
+	"right-clonediff": "ביצוע החלפת מחרוזות באתר הוויקי כולו",
+	"action-clonediff": "לבצע החלפת מחרוזות באתר הוויקי כולו"
+}

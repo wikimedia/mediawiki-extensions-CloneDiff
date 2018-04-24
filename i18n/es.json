@@ -13,5 +13,8 @@
 	"clonediff-success": "Se {{PLURAL:$1|importará una página|importarán $1 páginas}}.",
 	"clonediff-nosuchcategory": "No existe ninguna categoría denominada «$1».",
 	"clonediff-return": "Volver al formulario.",
-	"clonediff-continue": "Continuar"
+	"clonediff-continue": "Continuar",
+	"clonediff-editsummary": "Importar desde otro wiki mediante CloneDiff",
+	"right-clonediff": "Realizar sustituciones de cadenas de texto en todo el wiki",
+	"action-clonediff": "realizar sustituciones de cadenas de texto en todo el wiki"
 }
