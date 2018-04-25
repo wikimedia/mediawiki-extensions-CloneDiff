@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"ديفيد"
+		]
+	},
+	"clonediff": "انظر فروق الاستنساخ",
+	"clonediff-desc": "يوفر [[Special:CloneDiff|صفحة خاصة]] للسماح للإداريين بمشاهدة الاختلافات بين صفحات الويكي الحالي وويكي آخر، وباستيراد الصفحات من الويكي الآخر.",
+	"clonediff-docu": "اختر نطاقا و/أو تصنيفا، ثم اضغط على \"{{int:clonediff-continue}}\" لمشاهدة جميع الاختلافات في مجموعة الصفحات بين هذا الويكي والنسخة.",
+	"clonediff-nonamespace": "يجب عليك تحديد إما نطاق أو تصنيف (أو كليهما).",
+	"clonediff-categorysearch": "استبدل فقط في التصنيف:",
+	"clonediff-choosepagesforimport": "استيراد أي من الصفحات التالية:",
+	"clonediff-invertselections": "اعكس الاختيارات",
+	"clonediff-import": "استيراد",
+	"clonediff-success": "سيتم استيراد {{PLURAL:$1|صفحة واحدة|$1 صفحات}}.",
+	"clonediff-nosuchcategory": "لا يوجد تصنيف بالاسم \"$1\".",
+	"clonediff-return": "العودة إلى النموذج.",
+	"clonediff-continue": "استمرار",
+	"clonediff-editsummary": "استيراد من ويكي آخر عبر CloneDiff",
+	"right-clonediff": "إجراء استبدالات سلسلة على الويكي بأكمله",
+	"action-clonediff": "إجراء استبدالات سلسلة على الويكي بأكمله"
+}
