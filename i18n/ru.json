@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Happy13241"
+			"Happy13241",
+			"Okras"
 		]
 	},
 	"clonediff": "См. раздел клон дифференциалы",
@@ -11,8 +12,8 @@
 	"clonediff-categorysearch": "Заменить только в категории:",
 	"clonediff-choosepagesforimport": "Импортируйте любую из следующих страниц:",
 	"clonediff-invertselections": "Инвертировать выбор",
-	"clonediff-import": "Импорт",
-	"clonediff-success": "{{PLURAL:$1|Одна страница|$1 страницы}} будут импортированы.",
+	"clonediff-import": "Импортировать",
+	"clonediff-success": "{{PLURAL:$1|Будет импортирована $1 страница|Будут импортированы $1 страницы|Будет импортировано $1 страниц}}.",
 	"clonediff-nosuchcategory": "Не существует категории с именем «$1».",
 	"clonediff-return": "Вернуться к форме.",
 	"clonediff-continue": "Продолжить",

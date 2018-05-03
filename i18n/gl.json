@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"Navhy"
+			"Navhy",
+			"Elisardojm"
 		]
 	},
+	"clonediff-import": "Importar",
 	"clonediff-continue": "Continuar"
 }
