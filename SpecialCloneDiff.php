@@ -256,7 +256,7 @@ class SpecialCloneDiff extends SpecialPage {
 			Xml::openElement( 'form', $formOpts ) . "\n" .
 			Html::hidden( 'title', $this->getTitle()->getPrefixedText() ) .
 			Html::hidden( 'import', 1 ) .
-			Html::hidden( 'wikinum', $selectedWiki )
+			Html::hidden( 'remoteWiki', $selectedWiki )
 		);
 
 		$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
@@ -533,7 +533,7 @@ class SpecialCloneDiff extends SpecialPage {
 
 		$pagesToImport = [];
 		foreach ( $request->getValues() as $key => $value ) {
-			if ( $value == '1' && $key !== 'import' && $key !== 'wikinum' ) {
+			if ( $value == '1' && $key !== 'import' && $key !== 'remoteWiki' ) {
 				$pagesToImport[] = $key;
 			}
 		}
@@ -594,7 +594,7 @@ class SpecialCloneDiff extends SpecialPage {
 
 			curl_close($ch);
 		} catch ( Exception $e ) {
-			throw new MWException( "Error getting data from server: " . $e->getMessage() );
+			throw new MWException( "Error getting data from server: " . $e->getMessage() . "\nURL: " . $url . "\nParams: " . $post_params );
 		}
 
 		$apiResultData = json_decode( $data );
