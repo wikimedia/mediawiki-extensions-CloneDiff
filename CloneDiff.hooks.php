@@ -27,9 +27,18 @@ class CloneDiffHooks {
 
         $bar['Clone Wiki Links'] =  array();
 
+		$cache_object = ObjectCache::getInstance( CACHE_DB );
+		$cache_key = $cache_object->makeKey( 'clone_diff_sidebar', $wgTitle->getFullText() );
+
+		$cacheProp = unserialize( $cache_object->get( $cache_key ) );
+		if ( $cacheProp ) {
+			$bar['Clone Wiki Links'] =  $cacheProp;
+			return true;
+		}
+
 		foreach ( $wgCloneDiffWikis as $i => $cloneDiffWiki ) {
 			$apiURL = $cloneDiffWiki['API URL'];
-			$apiResultData = SpecialCloneDiff::httpRequest( $apiURL . '?action=query&titles='. $wgTitle->getFullText() .'&formatversion=2&format=json' );
+			$apiResultData = SpecialCloneDiff::httpRequest( $apiURL . '?action=query&titles='. str_replace( ' ', '_', $wgTitle->getFullText() ) .'&formatversion=2&format=json' );
 
 			if ( isset( $apiResultData->query ) && isset( $apiResultData->query->pages[0]->pageid ) ) {
 				$bar['Clone Wiki Links'][] = array(
@@ -38,6 +47,8 @@ class CloneDiffHooks {
 				);
 			}
 		}
+
+		$cache_object->set( $cache_key, serialize( $bar['Clone Wiki Links'] ), 5 * 24 * 60 * 60 );
 
 		return true;
 	}
