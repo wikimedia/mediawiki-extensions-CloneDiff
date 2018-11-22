@@ -1,14 +1,23 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrumps"
+			"Chrumps",
+			"Railfail536"
 		]
 	},
+	"clonediff": "Zobacz skopiowane różnice",
+	"clonediff-desc": "Wprowadza [[Special:CloneDiff|stronę specjalną]] umożliwiającą administratorom podgląd różnic pomiędzy stronami na ich i innej wiki, a także dodaje możliwość importu stron z innej wiki",
+	"clonediff-docu": "Wybierz przestrzeń nazw lub/oraz kategorię, a następnie kliknij przycisk „{{int:clonediff-continue}}”, aby zobaczyć wszystkie różnice pomiędzy podanym zestawem stron na tej wiki oraz kopiami.",
 	"clonediff-nonamespace": "Musisz wybrać przestrzeń nazw lub kategorię (albo obie).",
 	"clonediff-categorysearch": "Zamień tylko w kategorii:",
+	"clonediff-choosepagesforimport": "Importuj dowolną z podanych stron:",
+	"clonediff-invertselections": "Odwróć zaznaczenie",
 	"clonediff-import": "Importuj",
 	"clonediff-success": "{{PLURAL:$1|Zostanie zaimportowana jedna strona|Zostaną zaimportowane $1 strony|Zostanie zaimportowanych $1 stron}}.",
 	"clonediff-nosuchcategory": "Nie istnieje kategoria o nazwie „$1”.",
 	"clonediff-return": "Powrót do formularza.",
-	"clonediff-continue": "Kontynuuj"
+	"clonediff-continue": "Kontynuuj",
+	"clonediff-editsummary": "Import z innej wiki przez CloneDiff",
+	"right-clonediff": "Wykonywanie zastępowania tekstu w całej wiki",
+	"action-clonediff": "wykonywania zastępowania tekstu w całej wiki"
 }
