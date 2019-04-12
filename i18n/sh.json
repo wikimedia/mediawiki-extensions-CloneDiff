@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Vlad5250"
+		]
+	},
+	"clonediff": "Pregled kloniranih razlika",
+	"clonediff-desc": "Daje [[Special:CloneDiff|posebnu stranicu]] koja omogućuje administratorima pregled razlika između stranica na trenutnim i drugim wikijem, i uvoz stranica s drugih wikija.",
+	"clonediff-docu": "Izaberite imenski prostor i/ili kategoriju, a zatim kliknite \"{{int:clonediff-continue}}\" da biste vidjeli sve razlike u tim stranicama između ovog wikija i klona.",
+	"clonediff-nonamespace": "Morate odabrati imenski prostor ili kategoriju (ili oboje).",
+	"clonediff-categorysearch": "Zamijeni samo u kategoriji:",
+	"clonediff-choosepagesforimport": "Uvezi bilo koju od sljedećih stranica:",
+	"clonediff-invertselections": "Obrnuti izbor",
+	"clonediff-import": "Uvezi - Увези",
+	"clonediff-success": "Bit će {{PLURAL:$1|uvezena jedna stranica|uvezene $1 stranice|uvezeno $1 stranica}}.",
+	"clonediff-nosuchcategory": "Ne postoji kategorija pod nazivom \"$1\".",
+	"clonediff-return": "Nazad na obrazac.",
+	"clonediff-continue": "Nastavi",
+	"clonediff-editsummary": "Uvoz iz drugih wikija s Razlikama u klonovima",
+	"right-clonediff": "Zamjena niza u cijelom wikiju",
+	"action-clonediff": "zamjena niza u cijelom wikiju"
+}
