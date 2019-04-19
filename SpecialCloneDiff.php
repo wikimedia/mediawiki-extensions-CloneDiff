@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class SpecialCloneDiff extends SpecialPage {
 	private $categories, $namespace;
 
@@ -51,11 +53,11 @@ class SpecialCloneDiff extends SpecialPage {
 				'form',
 				[
 					'id' => 'powersearch',
-					'action' => $this->getTitle()->getFullUrl(),
+					'action' => $this->getPageTitle()->getFullURL(),
 					'method' => 'post'
 				]
 			) . "\n" .
-			Html::hidden( 'title', $this->getTitle()->getPrefixedText() ) .
+			Html::hidden( 'title', $this->getPageTitle()->getPrefixedText() ) .
 			Html::hidden( 'continue', 1 )
 		);
 
@@ -89,7 +91,8 @@ class SpecialCloneDiff extends SpecialPage {
 		$out->addHTML( '<p>' . Xml::checkLabel( 'Include pages that only exist remotely', "viewRemoteOnly", "viewRemoteOnly", true ) . '</p>' );
 
 		// The interface is heavily based on the one in Special:Search.
-		$namespaces = SearchEngine::searchableNamespaces();
+		$namespaces = MediaWikiServices::getInstance()->getSearchEngineConfig()
+			->searchableNamespaces();
 		$nsText = "\n";
 		foreach ( $namespaces as $ns => $name ) {
 			if ( '' == $name ) {
@@ -108,7 +111,7 @@ class SpecialCloneDiff extends SpecialPage {
 			"$nsText\n</fieldset>"
 		);
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$categorylinks = $dbr->tableName( 'categorylinks' );
 		$res = $dbr->query( "SELECT DISTINCT cl_to FROM $categorylinks" );
 		$categories = array();
@@ -250,11 +253,11 @@ class SpecialCloneDiff extends SpecialPage {
 		$formOpts = [
 			'id' => 'choose_pages',
 			'method' => 'post',
-			'action' => $this->getTitle()->getFullUrl()
+			'action' => $this->getPageTitle()->getFullURL()
 		];
 		$out->addHTML(
 			Xml::openElement( 'form', $formOpts ) . "\n" .
-			Html::hidden( 'title', $this->getTitle()->getPrefixedText() ) .
+			Html::hidden( 'title', $this->getPageTitle()->getPrefixedText() ) .
 			Html::hidden( 'import', 1 ) .
 			Html::hidden( 'remoteWiki', $selectedWiki )
 		);
@@ -412,7 +415,7 @@ class SpecialCloneDiff extends SpecialPage {
 
 	function getRemoteDataForPageSet( $apiURL, $pagesInRemoteWiki ) {
 		$pageDataURL = $apiURL .
-			'?action=query&prop=revisions&titles=' . 
+			'?action=query&prop=revisions&titles=' .
 			str_replace( ' ', '_', implode( '|', $pagesInRemoteWiki ) ) .
 			'&rvprop=user|timestamp|content&format=json';
 
@@ -558,7 +561,7 @@ class SpecialCloneDiff extends SpecialPage {
 
 		// Link back
 		$out->addHTML(
-			Linker::link( $this->getTitle(),
+			Linker::link( $this->getPageTitle(),
 				$this->msg( 'clonediff-return' )->escaped() )
 		);
 	}
