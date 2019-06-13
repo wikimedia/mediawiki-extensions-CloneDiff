@@ -494,8 +494,8 @@ class SpecialCloneDiff extends SpecialPage {
 			}
 			# Disable the "next" link when we reach the end
 			$atEnd = ( $numRows <= $offset + $limit );
-			$paging = $this->getLanguage()->viewPrevNext(
-				$this->getPageTitle(), $offset,
+			$paging = $this->buildPrevNextNavigation(
+				$offset,
 				$limit, $this->linkParameters(), $atEnd
 			);
 			$out->addHTML( '<p>' . $paging . '</p>' );
