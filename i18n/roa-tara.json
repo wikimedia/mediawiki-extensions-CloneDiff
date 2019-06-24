@@ -4,5 +4,19 @@
 			"Joetaras"
 		]
 	},
-	"clonediff-import": "'Mborte"
+	"clonediff": "'Ndruche le differenze d'a clonazione",
+	"clonediff-desc": "Dèje 'na [[Special:CloneDiff|pàgena speciale]] ca permette a le amministrature de 'ndrucà le differenze 'mbrà pàggene jndr'à uicchi de mò e 'n'otra uicchi, e de 'mbortà pàggene da 'n'otra uicchi.",
+	"clonediff-docu": "Scacchie 'u namespace e/o 'a categorije e pò cazze \"{{int:clonediff-continue}}\" pe 'ndrucà tutte le differenze jndr'à 'u 'nzieme de pàggene 'mbrà sta uicchi e 'a copie.",
+	"clonediff-nonamespace": "A scacchià 'nu namespace o 'na categorije (o tutte e doje).",
+	"clonediff-categorysearch": "Sostituisce sulamende jdnr'à categorije:",
+	"clonediff-choosepagesforimport": "'Mborte tutte da ste pàggene:",
+	"clonediff-invertselections": "Selezione a smerse",
+	"clonediff-import": "'Mborte",
+	"clonediff-success": "{{PLURAL:$1|'Na pàgene avène|$1 pàggene avènene}} 'mbortate.",
+	"clonediff-nosuchcategory": "Nisciuna categorije esiste cu 'u nome \"$1\".",
+	"clonediff-return": "Tuèrne a 'u module.",
+	"clonediff-continue": "Condinue",
+	"clonediff-editsummary": "'Mborte da 'n'otra uicchi ausanne CloneDiff",
+	"right-clonediff": "Fà 'a sostituzione de le stringhe sus a totte a uicchi",
+	"action-clonediff": "fà 'a sostituzione de le stringhe sus a totte a uicchi"
 }
