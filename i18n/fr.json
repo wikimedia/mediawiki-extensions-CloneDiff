@@ -1,19 +1,20 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko"
+			"Gomoko",
+			"Thibaut120094"
 		]
 	},
 	"clonediff": "Voir les différences de clones",
 	"clonediff-desc": "Fournit une [[Special:CloneDiff|page spéciale]] pour permettre aux administrateurs de voir les différences entre les pages du wiki courant et un autre wiki, et d’importer les pages depuis l’autre wiki.",
-	"clonediff-docu": "Choisir un espace de noms ou une catégorie et cliquer sur « {{int:clonediff-continue}} » pour voir toutes les différences dans cet ensemble de pages entre ce wiki et le clone.",
+	"clonediff-docu": "Choisir un espace de noms ou une catégorie et cliquer sur « {{int:clonediff-continue}} » pour voir toutes les différences dans cet ensemble de pages entre ce wiki et le clone.",
 	"clonediff-nonamespace": "Vous devez sélectionner soir un espace de noms, soit une catégorie (ou les deux).",
 	"clonediff-categorysearch": "Remplacer seulement dans la catégorie :",
 	"clonediff-choosepagesforimport": "Importer une des pages suivantes :",
 	"clonediff-invertselections": "Inverser les sélections",
 	"clonediff-import": "Importer",
 	"clonediff-success": "{{PLURAL:$1|Une page sera importée|$1 pages seront importées}}.",
-	"clonediff-nosuchcategory": "Aucune catégorie n’existe avec le nom « $1 ».",
+	"clonediff-nosuchcategory": "Aucune catégorie n’existe avec le nom « $1 ».",
 	"clonediff-return": "Revenir au formulaire.",
 	"clonediff-continue": "Continuer",
 	"clonediff-editsummary": "Importer depuis un autre wiki via CloneDiff",
