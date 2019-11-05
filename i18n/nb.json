@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"clonediff": "Se klonediffer",
+	"clonediff-desc": "Gir en [[Special:CloneDiff|spesialside]] for å la administratorer se forskjeller mellom sider i den nåværende wikien og en annen wiki, og importere sider fra den andre wikien.",
+	"clonediff-docu": "Velg et navnerom og/eller en kategori og trykk «{{int:clonediff-continue}}» for å se alle forskjellene i settet av sider mellom denne wikien og klonen.",
+	"clonediff-nonamespace": "Du må enten velge et navnerom eller en kategori (eller begge).",
+	"clonediff-categorysearch": "Erstatt kun i kategorien:",
+	"clonediff-choosepagesforimport": "Importer alle følgende sider:",
+	"clonediff-invertselections": "Inverter valg",
+	"clonediff-import": "Importer",
+	"clonediff-success": "{{PLURAL:$1|Én side|$1 sider}} blir importert.",
+	"clonediff-nosuchcategory": "Ingen kategori finnes med navn «$1».",
+	"clonediff-return": "Tilbake til skjemaet.",
+	"clonediff-continue": "Fortsett",
+	"clonediff-editsummary": "Import fra en annen wiki via CloneDiff",
+	"right-clonediff": "Gjør strengerstatninger på hele wikien",
+	"action-clonediff": "gjøre strengerstatninger på hele wikien"
+}
