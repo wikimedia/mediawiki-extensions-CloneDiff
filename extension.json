@@ -34,9 +34,9 @@
 		"CloneDiffAlias": "CloneDiff.alias.php"
 	},
 	"AutoloadClasses": {
-		"CloneDiffHooks": "CloneDiff.hooks.php",
-		"SpecialCloneDiff": "SpecialCloneDiff.php",
-		"ImportFromCloneJob": "ImportFromCloneJob.php"
+		"CloneDiffHooks": "includes/CloneDiffHooks.php",
+		"SpecialCloneDiff": "includes/SpecialCloneDiff.php",
+		"ImportFromCloneJob": "includes/ImportFromCloneJob.php"
 	},
 	"Hooks": {
 		"AdminLinks": [
