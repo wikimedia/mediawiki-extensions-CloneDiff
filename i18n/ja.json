@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kkairri"
+		]
+	},
+	"clonediff-desc": "管理者が現在いるウィキと別のウィキとで差分を取ったり、別のウィキからページを取り込めるようにする[[Special:CloneDiff|特別ページ]]を提供します。",
+	"clonediff-docu": "名前空間やカテゴリを選択して「{{int:clonediff-continue}}」をクリックすると、このウィキとクローンウィキのページの差分が見られます。",
+	"clonediff-nonamespace": "名前空間かカテゴリのどちらか（又は両方）を選択してください。",
+	"clonediff-categorysearch": "以下のカテゴリにあるもののみを置換:",
+	"clonediff-invertselections": "選択を反転",
+	"clonediff-import": "取り込み",
+	"clonediff-success": "{{PLURAL:$1|$1ページ|$1ページ}}が取り込まれます。",
+	"clonediff-nosuchcategory": "「$1」という名前のカテゴリは存在しません。",
+	"clonediff-return": "フォームに戻る",
+	"clonediff-continue": "続行",
+	"clonediff-editsummary": "CloneDiffを通じて他のウィキからインポート",
+	"right-clonediff": "ウィキ全体で文字列の置換を実行",
+	"action-clonediff": "ウィキ全体での文字列の置換の実行"
+}
