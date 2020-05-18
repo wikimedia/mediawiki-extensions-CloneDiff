@@ -1,0 +1,16 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jeeputer"
+		]
+	},
+	"clonediff-nonamespace": "لازم است که یک فضای نام یا یک رده (یا هردو) را انتخاب کنید.",
+	"clonediff-categorysearch": "جایگزینی تنها در رده:",
+	"clonediff-invertselections": "وارونه کردن انتخاب‌ها",
+	"clonediff-import": "درون‌ریزی",
+	"clonediff-success": "{{PLURAL:$1|یک صفحه|$1 صفحه}} درون‌ریزی خواهد شد.",
+	"clonediff-nosuchcategory": "هیچ رده‌ای با نام \"$1\" موجود نیست.",
+	"clonediff-continue": "ادامه",
+	"right-clonediff": "انجام جایگزین کردن رشته در تمام ویکی",
+	"action-clonediff": "ساختن جایگزین کردن رشته در تمام ویکی"
+}
