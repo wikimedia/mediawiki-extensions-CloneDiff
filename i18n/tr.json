@@ -2,22 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
-			"Hedda"
+			"Hedda",
+			"MuratTheTurkish"
 		]
 	},
 	"clonediff": "Klon farklılıklarına bakın",
-	"clonediff-desc": "Yöneticilerin geçerli wiki ve başka bir wikideki sayfalar arasındaki farkları görmesine ve diğer wikiden sayfa içe aktarmasına izin vermek için [[Special:CloneDiff|özel sayfa]] sağlar.",
-	"clonediff-docu": "Bir ad alanı ve/veya kategori seçin ve ardından bu wiki ile klon arasındaki sayfa grubundaki tüm farklılıkları görmek için \"{{int:clonediff-continue}}\" tuşuna basın.",
+	"clonediff-desc": "Hizmetlilerin geçerli viki ve başka bir vikideki sayfalar arasındaki farkları görmesine ve diğer vikiden sayfa içe aktarmasına izin vermek için [[Special:CloneDiff|özel sayfası]] sağlar.",
+	"clonediff-docu": "Bir ad alanı ve/veya kategori seçin ve ardından bu viki ile klon arasındaki sayfa grubundaki tüm farklılıkları görmek için \"{{int:clonediff-continue}}\" tuşuna basın.",
 	"clonediff-nonamespace": "Bir ad alanı veya kategori (veya her ikisini) seçmelisiniz.",
-	"clonediff-categorysearch": "Yalnızca kategoride değiştirin:",
-	"clonediff-choosepagesforimport": "Aşağıdaki sayfalardan herhangi birini içe aktarın:",
+	"clonediff-categorysearch": "Yalnızca kategoride değiştir:",
+	"clonediff-choosepagesforimport": "Aşağıdaki sayfalardan herhangi birini içe aktar:",
 	"clonediff-invertselections": "Seçimleri ters çevir",
 	"clonediff-import": "İçe aktar",
-	"clonediff-success": "{{PLURAL:$1|Bir sayfa|$1 sayfa}} içe aktaracak.",
+	"clonediff-success": "{{PLURAL:$1|Bir sayfa|$1 sayfa}} içe aktaracaktır.",
 	"clonediff-nosuchcategory": "\"$1\" adında bir kategori yok.",
 	"clonediff-return": "Forma dön.",
 	"clonediff-continue": "Devam et",
-	"clonediff-editsummary": "CloneDiff üzerinden başka bir wikiden içe aktar",
-	"right-clonediff": "Tüm wikide dize değiştirme işlemleri yap",
-	"action-clonediff": "tüm wikide dize değiştirme işlemleri yap"
+	"clonediff-editsummary": "CloneDiff üzerinden başka bir vikiden içe aktar",
+	"right-clonediff": "Tüm vikide dize değiştirme işlemleri yap",
+	"action-clonediff": "tüm vikide dize değiştirme işlemleri yap"
 }
