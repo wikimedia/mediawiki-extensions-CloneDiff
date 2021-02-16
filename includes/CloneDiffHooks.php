@@ -21,7 +21,7 @@ class CloneDiffHooks {
 	public static function addToSidebar( Skin $skin, &$bar ) {
 		global $wgTitle, $wgCloneDiffWikis;
 
-		if ( $wgTitle->isSpecialPage() ) {
+		if ( !$wgTitle || $wgTitle->isSpecialPage() ) {
 			return true;
 		}
 
