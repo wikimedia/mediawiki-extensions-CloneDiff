@@ -1,13 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Liuxinyu970226"
+			"Liuxinyu970226",
+			"Xiplus"
 		]
 	},
 	"clonediff": "查看克隆的差异",
 	"clonediff-desc": "提供[[Special:CloneDiff|特殊页面]]以允许管理员查看当前wiki和另一wiki的页面之间的差异，并从其他wiki导入页面。",
-	"clonediff-docu": "选择名字空间和/或分类，并敲击“{{int:clonediff-continue}}”以查看此wiki和克隆的wiki之间页面的所有差异。",
-	"clonediff-nonamespace": "您必须选择名字空间或分类（或两者都选）。",
+	"clonediff-docu": "选择命名空间和/或分类，并敲击“{{int:clonediff-continue}}”以查看此wiki和克隆的wiki之间页面的所有差异。",
+	"clonediff-nonamespace": "您必须选择命名空间或分类（或两者都选）。",
 	"clonediff-categorysearch": "只在此分类中替换：",
 	"clonediff-choosepagesforimport": "导入以下任何页面：",
 	"clonediff-invertselections": "反选",
