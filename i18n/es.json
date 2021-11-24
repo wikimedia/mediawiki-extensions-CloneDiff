@@ -1,11 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Jakeukalane"
 		]
 	},
-	"clonediff-desc": "Proporciona una [[Special:CloneDiff|página especial]] que permite a los administradores visualizar las diferencias entre páginas del wiki actual y de otro, así como importar páginas del otro wiki.",
-	"clonediff-docu": "Escoge un espacio de nombres o una categoría y pulsa en «{{int:clonediff-continue}}» para ver todas las diferencias en ese conjunto de páginas entre este wiki y el clon.",
+	"clonediff-desc": "Proporciona una [[Special:CloneDiff|página especial]] que permite a los administradores visualizar las diferencias entre páginas de la wiki actual y de otro, así como importar páginas de la otra wiki.",
+	"clonediff-docu": "Escoge un espacio de nombres o una categoría y pulsa en «{{int:clonediff-continue}}» para ver todas las diferencias en ese conjunto de páginas entre esta wiki y el clon.",
 	"clonediff-nonamespace": "Debes seleccionar o un espacio de nombres o una categoría (o ambos).",
 	"clonediff-categorysearch": "Reemplazar únicamente en la categoría:",
 	"clonediff-choosepagesforimport": "Importar cualquiera de las páginas siguientes:",
@@ -16,6 +17,6 @@
 	"clonediff-return": "Volver al formulario.",
 	"clonediff-continue": "Continuar",
 	"clonediff-editsummary": "Importar desde otro wiki mediante CloneDiff",
-	"right-clonediff": "Realizar sustituciones de cadenas de texto en todo el wiki",
-	"action-clonediff": "realizar sustituciones de cadenas de texto en todo el wiki"
+	"right-clonediff": "Realizar sustituciones de cadenas de texto en toda la wiki",
+	"action-clonediff": "realizar sustituciones de cadenas de texto en toda la wiki"
 }

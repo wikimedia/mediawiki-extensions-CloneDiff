@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"clonediff": "Vider differentias de clones",
+	"clonediff-desc": "Forni un [[Special:CloneDiff|pagina special]] pro permitter que administratores vide le differentias inter paginas del wiki actual e de un altere wiki, e pro importar paginas ab le altere wiki.",
+	"clonediff-docu": "Selige un spatio de nomines e/o categoria, pois preme \"{{int:clonediff-continue}}\" pro vider tote le differentias in ille insimul de paginas inter iste wiki e le clon.",
+	"clonediff-nonamespace": "Tu debe seliger o un spatio de nomines o un categoria (o ambes).",
+	"clonediff-categorysearch": "Reimplaciar solmente in le categoria:",
+	"clonediff-choosepagesforimport": "Importar qualcunque del sequente paginas:",
+	"clonediff-invertselections": "Inverter selectiones",
+	"clonediff-import": "Importar",
+	"clonediff-success": "{{PLURAL:$1|Un pagina|$1 paginas}} essera importate.",
+	"clonediff-nosuchcategory": "Nulle categoria existe con le nomine \"$1\".",
+	"clonediff-return": "Retornar al formulario.",
+	"clonediff-continue": "Continuar",
+	"clonediff-editsummary": "Importar ab un altere wiki via CloneDiff",
+	"right-clonediff": "Reimplaciar catenas de texto in tote le wiki",
+	"action-clonediff": "reimplaciar catenas de texto in tote le wiki"
+}
