@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Guycn2"
+			"Guycn2",
+			"Amire80"
 		]
 	},
 	"clonediff": "צפייה בהבדלים מיובאים בין גרסאות",
@@ -10,7 +11,7 @@
 	"clonediff-nonamespace": "יש לבחור מרחב שם ו/או קטגוריה.",
 	"clonediff-categorysearch": "החלפה בקטגוריה הבאה בלבד:",
 	"clonediff-choosepagesforimport": "ייבוא הדפים הבאים:",
-	"clonediff-invertselections": "הפיכת הבחירה",
+	"clonediff-invertselections": "היפוך בחירה",
 	"clonediff-import": "ייבוא",
 	"clonediff-success": "{{PLURAL:$1|דף אחד ייובא|$1 דפים ייובאו}}.",
 	"clonediff-nosuchcategory": "לא קיימת קטגוריה בשם \"$1\".",
