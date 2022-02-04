@@ -115,10 +115,9 @@ class SpecialCloneDiff extends SpecialPage {
 		$categorylinks = $dbr->tableName( 'categorylinks' );
 		$res = $dbr->query( "SELECT DISTINCT cl_to FROM $categorylinks" );
 		$categories = array();
-		while ( $row = $dbr->fetchRow( $res ) ) {
-			$categories[] = str_replace( '_', ' ', $row[0] );
+		foreach ( $res as $row ) {
+			$categories[] = str_replace( '_', ' ', $row->cl_to );
 		}
-		$dbr->freeResult( $res );
 		sort( $categories );
 
 		//$tables = $this->categoryTables( $categories );
