@@ -30,10 +30,16 @@ class ImportFromCloneJob extends Job {
 		// replacement.
 		global $wgUser;
 		$actual_user = $wgUser;
-		$wgUser = User::newFromId( $this->params['user_id'] );
+		$editAsUser = User::newFromId( $this->params['user_id'] );
+		$wgUser = $editAsUser;
 		$edit_summary = wfMessage( 'clonediff-editsummary' )->inContentLanguage()->parse();
 		$content = new WikitextContent( $page_text );
-		$wikiPage->doEditContent( $content, $edit_summary );
+		if ( method_exists( $wikiPage, 'doUserEditContent' ) ) {
+			// MW 1.36+
+			$wikiPage->doUserEditContent( $content, $editAsUser, $edit_summary );
+		} else {
+			$wikiPage->doEditContent( $content, $edit_summary );
+		}
 
 		$wgUser = $actual_user;
 		return true;
