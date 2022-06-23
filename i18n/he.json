@@ -10,14 +10,14 @@
 	"clonediff-docu": "יש לבחור מרחב שם ו/או קטגוריה ולאחר מכן ללחוץ על \"{{int:clonediff-continue}}\" כדי לצפות בכל ההבדלים בדפים האלה בין אתר הוויקי הזה לבין אתר הוויקי המיועד.",
 	"clonediff-nonamespace": "יש לבחור מרחב שם ו/או קטגוריה.",
 	"clonediff-categorysearch": "החלפה בקטגוריה הבאה בלבד:",
-	"clonediff-choosepagesforimport": "ייבוא הדפים הבאים:",
+	"clonediff-choosepagesforimport": "יבוא מהדפים הבאים:",
 	"clonediff-invertselections": "היפוך בחירה",
-	"clonediff-import": "ייבוא",
+	"clonediff-import": "יבוא",
 	"clonediff-success": "{{PLURAL:$1|דף אחד ייובא|$1 דפים ייובאו}}.",
 	"clonediff-nosuchcategory": "לא קיימת קטגוריה בשם \"$1\".",
 	"clonediff-return": "חזרה לטופס.",
 	"clonediff-continue": "המשך",
-	"clonediff-editsummary": "ייבוא מאתר ויקי אחר באמצעות כלי ייבוא ההבדלים בין הגרסאות",
+	"clonediff-editsummary": "יבוא מאתר ויקי אחר באמצעות כלי יבוא ההבדלים בין הגרסאות",
 	"right-clonediff": "ביצוע החלפת מחרוזות באתר הוויקי כולו",
 	"action-clonediff": "לבצע החלפת מחרוזות באתר הוויקי כולו"
 }
