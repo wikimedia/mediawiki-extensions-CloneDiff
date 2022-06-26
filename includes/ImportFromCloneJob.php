@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Background job to modify or create a page,
  */
@@ -21,7 +23,12 @@ class ImportFromCloneJob extends Job {
 			$this->error = wfMessage( 'clonediff-irregulartext', $this->title->getPrefixedDBkey() )->text();
 			return false;
 		}
-		$wikiPage = new WikiPage( $this->title );
+		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+			// MW 1.36+
+			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $this->title );
+		} else {
+			$wikiPage = new WikiPage( $this->title );
+		}
 
 		$page_text = $this->params['page_text'];
 
