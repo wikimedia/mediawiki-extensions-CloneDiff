@@ -326,7 +326,7 @@ class SpecialCloneDiff extends SpecialPage {
 					$time = null;
 					$user = null;
 				} else {
-					$localLink = Linker::link( $title, 'Local version' );
+					$localLink = $this->getLinkRenderer()->makeLink( $title, 'Local version' );
 					$rev = Revision::newFromTitle( $title );
 					$time = $rev->getTimestamp();
 					$user = $rev->getUserText();
@@ -575,8 +575,8 @@ class SpecialCloneDiff extends SpecialPage {
 
 		// Link back
 		$out->addHTML(
-			Linker::link( $this->getPageTitle(),
-				$this->msg( 'clonediff-return' )->escaped() )
+			$this->getLinkRenderer()->makeLink( $this->getPageTitle(),
+				$this->msg( 'clonediff-return' )->text() )
 		);
 	}
 
