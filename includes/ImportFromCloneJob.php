@@ -32,23 +32,23 @@ class ImportFromCloneJob extends Job {
 
 		$page_text = $this->params['page_text'];
 
-		// Change global $wgUser variable to the one
-		// specified by the job only for the extent of this
-		// replacement.
-		global $wgUser;
-		$actual_user = $wgUser;
 		$editAsUser = User::newFromId( $this->params['user_id'] );
-		$wgUser = $editAsUser;
 		$edit_summary = wfMessage( 'clonediff-editsummary' )->inContentLanguage()->parse();
 		$content = new WikitextContent( $page_text );
 		if ( method_exists( $wikiPage, 'doUserEditContent' ) ) {
 			// MW 1.36+
 			$wikiPage->doUserEditContent( $content, $editAsUser, $edit_summary );
 		} else {
+			global $wgUser;
+			// Change global $wgUser variable to the one
+			// specified by the job only for the extent of this
+			// replacement.
+			$actual_user = $wgUser;
+			$wgUser = $editAsUser;
 			$wikiPage->doEditContent( $content, $edit_summary );
+			$wgUser = $actual_user;
 		}
 
-		$wgUser = $actual_user;
 		return true;
 	}
 }
