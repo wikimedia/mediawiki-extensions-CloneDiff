@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
-			"BadDog"
+			"BadDog",
+			"Milicevic01"
 		]
 	},
+	"clonediff-import": "Увоз",
 	"clonediff-continue": "Настави"
 }
