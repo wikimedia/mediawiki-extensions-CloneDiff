@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"捍粵者"
 		]
 	},
 	"clonediff": "查看複製的差異",
@@ -17,6 +18,6 @@
 	"clonediff-return": "返回表單。",
 	"clonediff-continue": "繼續",
 	"clonediff-editsummary": "透過 CloneDiff 從其它 wiki 匯入",
-	"right-clonediff": "對整個 wiki 進行字串取代。",
-	"action-clonediff": "對整個 wiki 進行字串取代。"
+	"right-clonediff": "取代整個wiki的字串",
+	"action-clonediff": "取代整個Wiki的字串"
 }
