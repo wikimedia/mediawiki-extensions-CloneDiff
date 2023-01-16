@@ -4,8 +4,19 @@
 			"Eleassar"
 		]
 	},
+	"clonediff": "Ogled razlike klonov",
+	"clonediff-desc": "Zagotavlja [[Special:CloneDiff|posebno stran]], ki administratorjem omogoča ogled razlik med stranmi v trenutnem vikiju in drugem vikiju ter uvoz strani iz drugega vikija.",
+	"clonediff-docu": "Izberite imenski prostor in/ali kategorijo in pritisnite »{{int:clonediff-continue}}«, da si ogledate vse razlike v tem naboru strani med tem vikijem in klonom.",
+	"clonediff-nonamespace": "Izbrati morate imenski prostor ali kategorijo (ali oboje).",
+	"clonediff-categorysearch": "Zamenjaj samo v kategoriji:",
+	"clonediff-choosepagesforimport": "Uvozi katero koli od naslednjih strani:",
+	"clonediff-invertselections": "Obrni izbore",
 	"clonediff-import": "Uvozi",
+	"clonediff-success": "{{PLURAL:$1|Uvožena bo|Uvoženi bosta|Uvožene bodo|Uvoženih bo}} {{PLURAL:$1|ena stran|$1 strani}}",
+	"clonediff-nosuchcategory": "Ne obstaja nobena kategorija z imenom »$1«.",
+	"clonediff-return": "Vrnitev na obrazec.",
 	"clonediff-continue": "Nadaljuj",
+	"clonediff-editsummary": "Uvoz iz drugega vikija prek CloneDiff",
 	"right-clonediff": "Zamenjevanje nizov v vsem vikiju",
 	"action-clonediff": "zamenjevati nizov v vsem vikiju"
 }
