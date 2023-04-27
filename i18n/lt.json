@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"clonediff-categorysearch": "Keisti tik kategorijoje:",
+	"clonediff-choosepagesforimport": "Importuoti bet kurį iš šių puslapių:",
+	"clonediff-import": "Importuoti",
+	"clonediff-success": "{{PLURAL:$1|Vienas puslapis|$1 puslapiai}} bus importuoti.",
+	"clonediff-nosuchcategory": "Kategorijos pavadinimu „$1“ nėra.",
+	"clonediff-return": "Grįžti į formą.",
+	"clonediff-continue": "Tęsti",
+	"clonediff-editsummary": "Importuoti iš kito viki per CloneDiff"
+}
