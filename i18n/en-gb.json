@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Piano1forte2"
+		]
+	},
+	"clonediff-docu": "Choose a namespace and/or category and then hit '{{int:clonediff-continue}}' to see all the differences in that set of pages between this wiki and the clone.",
+	"clonediff-nosuchcategory": "No category exists with the name '$1'."
+}
