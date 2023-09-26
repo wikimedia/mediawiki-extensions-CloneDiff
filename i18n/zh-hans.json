@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Liuxinyu970226",
-			"Xiplus"
+			"Xiplus",
+			"LittlePaw365"
 		]
 	},
 	"clonediff": "查看克隆的差异",
@@ -13,7 +14,7 @@
 	"clonediff-choosepagesforimport": "导入以下任何页面：",
 	"clonediff-invertselections": "反选",
 	"clonediff-import": "导入",
-	"clonediff-success": "将会导入{{PLURAL:$1|$1个页面}}。",
+	"clonediff-success": "{{PLURAL:$1|$1个页面}}即将导入。",
 	"clonediff-nosuchcategory": "找不到名为“$1”的分类。",
 	"clonediff-return": "返回表格。",
 	"clonediff-continue": "继续",
