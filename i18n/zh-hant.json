@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Kly",
+			"Winston Sung",
 			"捍粵者"
 		]
 	},
@@ -19,5 +20,5 @@
 	"clonediff-continue": "繼續",
 	"clonediff-editsummary": "透過 CloneDiff 從其它 wiki 匯入",
 	"right-clonediff": "取代整個wiki的字串",
-	"action-clonediff": "取代整個Wiki的字串"
+	"action-clonediff": "取代整個wiki的字串"
 }
