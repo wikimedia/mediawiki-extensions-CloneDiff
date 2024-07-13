@@ -288,6 +288,7 @@ class SpecialCloneDiff extends SpecialPage {
 		$localAndRemoteData = $this->getLocalAndRemoteDataForPageSet( $apiURL, $pagesToBeDisplayed );
 
 		$diffEngine = new DifferenceEngine();
+		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		foreach ( $localAndRemoteData as $pageName => $curPageData ) {
 			$localText = $curPageData['localText'];
 			$remoteText = $curPageData['remoteText'];
@@ -327,7 +328,7 @@ class SpecialCloneDiff extends SpecialPage {
 					$user = null;
 				} else {
 					$localLink = $this->getLinkRenderer()->makeLink( $title, 'Local version' );
-					$rev = Revision::newFromTitle( $title );
+					$rev = $revLookup->getRevisionByTitle( $title );
 					$time = $rev->getTimestamp();
 					$user = $rev->getUserText();
 				}
@@ -452,12 +453,13 @@ class SpecialCloneDiff extends SpecialPage {
 
 		$remotePageData = $this->getRemoteDataForPageSet( $apiURL, $pagesInRemoteWiki );
 		$allPageData = [];
+		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		foreach ( $remotePageData as $remotePage ) {
 			$curPageData = [];
 			$pageName = $remotePage->title;
 			if ( $pageSet[$pageName] == self::IN_BOTH ) {
 				$localTitle = Title::newFromText( $pageName );
-				$rev = Revision::newFromTitle( $localTitle );
+				$rev = $revLookup->getRevisionByTitle( $localTitle );
 				$localContent = $rev->getContent();
 				$localText = $localContent->serialize();
 			} else {
@@ -479,7 +481,7 @@ class SpecialCloneDiff extends SpecialPage {
 		foreach ( $pagesNotInRemoteWiki as $pageName ) {
 			$curPageData = [];
 			$localTitle = Title::newFromText( $pageName );
-			$rev = Revision::newFromTitle( $localTitle );
+			$rev = $revLookup->getRevisionByTitle( $localTitle );
 			$localContent = $rev->getContent();
 			$localText = $localContent->serialize();
 			$curPageData['localText'] = $localText;
