@@ -276,12 +276,7 @@ class SpecialCloneDiff extends SpecialPage {
 		}
 
 		if ( $showNavigation ) {
-			if ( method_exists( $request, 'getLimitOffsetForUser' ) ) {
-				// MW 1.35+
-				list( $limit, $offset ) = $request->getLimitOffsetForUser( $this->getUser() );
-			} else {
-				list( $limit, $offset ) = $request->getLimitOffset();
-			}
+			list( $limit, $offset ) = $request->getLimitOffsetForUser( $this->getUser() );
 			$this->showNavigation( count( $pagesToBeDisplayed ), $limit, $offset, true );
 		}
 
@@ -406,12 +401,7 @@ class SpecialCloneDiff extends SpecialPage {
 
 		$allPageNames = array_keys( $allPages );
 
-		if ( method_exists( $request, 'getLimitOffsetForUser' ) ) {
-			// MW 1.35+
-			list( $limit, $offset ) = $request->getLimitOffsetForUser( $this->getUser() );
-		} else {
-			list( $limit, $offset ) = $request->getLimitOffset();
-		}
+		list( $limit, $offset ) = $request->getLimitOffsetForUser( $this->getUser() );
 
 		$pagesToBeDisplayed = array();
 		for ( $i = $offset; $i < $offset + $limit && $i < count( $allPageNames ); $i++ ) {
