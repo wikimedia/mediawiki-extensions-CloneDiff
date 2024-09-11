@@ -32,7 +32,7 @@ class ImportFromCloneJob extends Job {
 
 		$page_text = $this->params['page_text'];
 
-		$editAsUser = User::newFromId( $this->params['user_id'] );
+		$editAsUser = MediaWikiServices::getInstance()->getUserFactory()->newFromId( $this->params['user_id'] );
 		$edit_summary = wfMessage( 'clonediff-editsummary' )->inContentLanguage()->parse();
 		$content = new WikitextContent( $page_text );
 		if ( method_exists( $wikiPage, 'doUserEditContent' ) ) {
