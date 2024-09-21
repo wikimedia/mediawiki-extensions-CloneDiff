@@ -111,7 +111,7 @@ class SpecialCloneDiff extends SpecialPage {
 			"$nsText\n</fieldset>"
 		);
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		$categorylinks = $dbr->tableName( 'categorylinks' );
 		$res = $dbr->query( "SELECT DISTINCT cl_to FROM $categorylinks" );
 		$categories = array();
@@ -140,7 +140,7 @@ class SpecialCloneDiff extends SpecialPage {
 	}
 
 	public function getLocalPages() {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		$tables = [ 'page' ];
 		$vars = [ 'page_id', 'page_namespace', 'page_title' ];
 		$conds = [];
