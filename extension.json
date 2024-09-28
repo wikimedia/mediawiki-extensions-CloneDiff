@@ -38,13 +38,17 @@
 		"SpecialCloneDiff": "includes/SpecialCloneDiff.php",
 		"ImportFromCloneJob": "includes/ImportFromCloneJob.php"
 	},
+	"HookHandlers": {
+		"main": {
+			"class": "CloneDiffHooks"
+		},
+		"adminlinks": {
+			"class": "AdminLinksHooks"
+		}
+	},
 	"Hooks": {
-		"AdminLinks": [
-			"CloneDiffHooks::addToAdminLinks"
-		],
-		"SkinBuildSidebar": [
-			"CloneDiffHooks::addToSidebar"
-		]
+		"AdminLinks": "adminlinks",
+		"SkinBuildSidebar": "main"
 	},
 	"config": {
 		"CloneDiffWikis": []
