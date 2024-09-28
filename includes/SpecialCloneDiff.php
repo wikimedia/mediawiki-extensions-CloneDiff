@@ -1,8 +1,9 @@
 <?php
 
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RevisionLookup;
 use MediaWiki\Title\Title;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 class SpecialCloneDiff extends SpecialPage {
 	private $categories, $namespace;
@@ -11,7 +12,12 @@ class SpecialCloneDiff extends SpecialPage {
 	const REMOTE_ONLY = 1;
 	const IN_BOTH = 2;
 
-	public function __construct() {
+	public function __construct(
+		private readonly JobQueueGroup $jobQueueGroup,
+		private readonly ILoadBalancer $loadBalancer,
+		private readonly RevisionLookup $revisionLookup,
+		private readonly SearchEngineConfig $searchEngineConfig,
+	) {
 		parent::__construct( 'CloneDiff' );
 	}
 
@@ -95,8 +101,7 @@ class SpecialCloneDiff extends SpecialPage {
 			. "\u{00A0}" . Html::label( 'Include pages that only exist remotely', "viewRemoteOnly" ) . '</p>' );
 
 		// The interface is heavily based on the one in Special:Search.
-		$namespaces = MediaWikiServices::getInstance()->getSearchEngineConfig()
-			->searchableNamespaces();
+		$namespaces = $this->searchEngineConfig->searchableNamespaces();
 		$nsText = "\n";
 		foreach ( $namespaces as $ns => $name ) {
 			if ( '' == $name ) {
@@ -115,7 +120,7 @@ class SpecialCloneDiff extends SpecialPage {
 			"$nsText\n</fieldset>"
 		);
 
-		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
+		$dbr = $this->loadBalancer->getConnection( DB_REPLICA );
 		$categorylinks = $dbr->tableName( 'categorylinks' );
 		$res = $dbr->query( "SELECT DISTINCT cl_to FROM $categorylinks" );
 		$categories = array();
@@ -145,7 +150,7 @@ class SpecialCloneDiff extends SpecialPage {
 	}
 
 	public function getLocalPages() {
-		$dbr = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
+		$dbr = $this->loadBalancer->getConnection( DB_REPLICA );
 		$tables = [ 'page' ];
 		$vars = [ 'page_id', 'page_namespace', 'page_title' ];
 		$conds = [];
@@ -288,7 +293,6 @@ class SpecialCloneDiff extends SpecialPage {
 		$localAndRemoteData = $this->getLocalAndRemoteDataForPageSet( $apiURL, $pagesToBeDisplayed );
 
 		$diffEngine = new DifferenceEngine();
-		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		foreach ( $localAndRemoteData as $pageName => $curPageData ) {
 			$localText = $curPageData['localText'];
 			$remoteText = $curPageData['remoteText'];
@@ -328,7 +332,7 @@ class SpecialCloneDiff extends SpecialPage {
 					$user = null;
 				} else {
 					$localLink = $this->getLinkRenderer()->makeLink( $title, 'Local version' );
-					$rev = $revLookup->getRevisionByTitle( $title );
+					$rev = $this->revisionLookup->getRevisionByTitle( $title );
 					$time = $rev->getTimestamp();
 					$user = $rev->getUserText();
 				}
@@ -448,13 +452,12 @@ class SpecialCloneDiff extends SpecialPage {
 
 		$remotePageData = $this->getRemoteDataForPageSet( $apiURL, $pagesInRemoteWiki );
 		$allPageData = [];
-		$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		foreach ( $remotePageData as $remotePage ) {
 			$curPageData = [];
 			$pageName = $remotePage->title;
 			if ( $pageSet[$pageName] == self::IN_BOTH ) {
 				$localTitle = Title::newFromText( $pageName );
-				$rev = $revLookup->getRevisionByTitle( $localTitle );
+				$rev = $this->revisionLookup->getRevisionByTitle( $localTitle );
 				$localContent = $rev->getContent();
 				$localText = $localContent->serialize();
 			} else {
@@ -476,7 +479,7 @@ class SpecialCloneDiff extends SpecialPage {
 		foreach ( $pagesNotInRemoteWiki as $pageName ) {
 			$curPageData = [];
 			$localTitle = Title::newFromText( $pageName );
-			$rev = $revLookup->getRevisionByTitle( $localTitle );
+			$rev = $this->revisionLookup->getRevisionByTitle( $localTitle );
 			$localContent = $rev->getContent();
 			$localText = $localContent->serialize();
 			$curPageData['localText'] = $localText;
@@ -560,7 +563,7 @@ class SpecialCloneDiff extends SpecialPage {
 			}
 		}
 
-		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
+		$this->jobQueueGroup->push( $jobs );
 
 		$count = $this->getLanguage()->formatNum( count( $jobs ) );
 		$out->addWikiMsg( 'clonediff-success', $count );

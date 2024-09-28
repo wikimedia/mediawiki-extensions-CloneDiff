@@ -20,7 +20,15 @@
 		"clonediff"
 	],
 	"SpecialPages": {
-		"CloneDiff": "SpecialCloneDiff"
+		"CloneDiff": {
+			"class": "SpecialCloneDiff",
+			"services": [
+				"JobQueueGroup",
+				"DBLoadBalancer",
+				"RevisionLookup",
+				"SearchEngineConfig"
+			]
+		}
 	},
 	"JobClasses": {
 		"importFromClone": "ImportFromCloneJob"
