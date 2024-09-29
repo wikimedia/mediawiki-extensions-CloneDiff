@@ -6,10 +6,9 @@
  * @ingroup Extensions
  */
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English (English) */
-$specialPageAliases['en'] = array(
-        'CloneDiff' => array( 'CloneDiff' ),
-);
-
+$specialPageAliases['en'] = [
+	'CloneDiff' => [ 'CloneDiff' ],
+];

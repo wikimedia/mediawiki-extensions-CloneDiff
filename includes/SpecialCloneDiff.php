@@ -132,7 +132,7 @@ class SpecialCloneDiff extends SpecialPage {
 			$res = $dbr->query( "SELECT DISTINCT cl_to FROM $categorylinks" );
 		}
 
-		$categories = array();
+		$categories = [];
 		foreach ( $res as $row ) {
 			$categories[] = str_replace( '_', ' ', $row->cl_to );
 		}
@@ -293,7 +293,7 @@ class SpecialCloneDiff extends SpecialPage {
 
 		$apiURL = $wgCloneDiffWikis[$selectedWiki]['API URL'];
 
-		$pagesToBeDisplayed = array();
+		$pagesToBeDisplayed = [];
 		$showNavigation = true;
 		if ( $request->getVal( 'pageName' ) != '' ) {
 			$pagesToBeDisplayed[$request->getVal( 'pageName' )] = 2;
@@ -405,7 +405,7 @@ class SpecialCloneDiff extends SpecialPage {
 			$remotePages = $this->getAllRemotePagesInCategories( $apiURL );
 		}
 
-		$allPages = array();
+		$allPages = [];
 
 		if ( $viewPagesOnlyInLocal ) {
 			$pagesOnlyInLocal = array_diff( $localPages, $remotePages );
@@ -432,7 +432,7 @@ class SpecialCloneDiff extends SpecialPage {
 
 		list( $limit, $offset ) = $request->getLimitOffsetForUser( $this->getUser() );
 
-		$pagesToBeDisplayed = array();
+		$pagesToBeDisplayed = [];
 		for ( $i = $offset; $i < $offset + $limit && $i < count( $allPageNames ); $i++ ) {
 			$pageName = $allPageNames[$i];
 			$status = $allPages[$pageName];
@@ -460,8 +460,8 @@ class SpecialCloneDiff extends SpecialPage {
 	}
 
 	function getLocalAndRemoteDataForPageSet( $apiURL, $pageSet ) {
-		$pagesNotInRemoteWiki = array();
-		$pagesInRemoteWiki = array();
+		$pagesNotInRemoteWiki = [];
+		$pagesInRemoteWiki = [];
 		foreach( $pageSet as $pageName => $status ) {
 			if ( $status == self::LOCAL_ONLY ) {
 				$pagesNotInRemoteWiki[] = $pageName;
@@ -650,11 +650,11 @@ class SpecialCloneDiff extends SpecialPage {
 			}
 
 			$post_params = http_build_query(
-				array(
+				[
 					"lgname" => $wgRequest->getVal('remote_username'),
 					"lgpassword" => $wgRequest->getVal('remote_password'),
 					"lgtoken" => $login_token
-				)
+				]
 			);
 
 			$login_result = self::httpRequest( $apiURL . "?action=login&format=json",  $post_params );

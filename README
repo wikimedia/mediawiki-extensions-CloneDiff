@@ -27,11 +27,11 @@ in order to use the extension. Each such value has to be an
 array of three elements: 'name', 'API URL' and 'URL'. Here is
 one example:
 
-$wgCloneDiffWikis[] = array(
+$wgCloneDiffWikis[] = [
 	'name' => 'My Example Wiki',
 	'API URL' => 'https://example.org/w/api.php',
-	'URL' => 'https://example.com'
-);
+	'URL' => 'https://example.com',
+];
 
 The 'clonediff' permission lets you dictate who can access the
 page Special:CloneDiff. By default, only administrators can.

@@ -13,14 +13,14 @@ class CloneDiffHooks implements
 			return true;
 		}
 
-        $bar['Clone Wiki Links'] =  array();
+		$bar['Clone Wiki Links'] = [];
 
 		$cache_object = ObjectCache::getInstance( CACHE_DB );
 		$cache_key = $cache_object->makeKey( 'clone_diff_sidebar', $wgTitle->getFullText() );
 
 		$cacheProp = unserialize( $cache_object->get( $cache_key ) );
 		if ( $cacheProp ) {
-			$bar['Clone Wiki Links'] =  $cacheProp;
+			$bar['Clone Wiki Links'] = $cacheProp;
 			return true;
 		}
 
@@ -29,10 +29,10 @@ class CloneDiffHooks implements
 			$apiResultData = SpecialCloneDiff::httpRequest( $apiURL . '?action=query&titles='. str_replace( ' ', '_', $wgTitle->getFullText() ) .'&formatversion=2&format=json' );
 
 			if ( isset( $apiResultData->query ) && isset( $apiResultData->query->pages[0]->pageid ) ) {
-				$bar['Clone Wiki Links'][] = array(
-					'text'   => 'Compare to page in ' . $cloneDiffWiki['name'],
-					'href'   => SpecialPage::getTitleFor( 'CloneDiff' )->getFullURL( "remoteWiki=$i&pageName=" . $wgTitle->getFullText() )
-				);
+				$bar['Clone Wiki Links'][] = [
+					'text' => 'Compare to page in ' . $cloneDiffWiki['name'],
+					'href' => SpecialPage::getTitleFor( 'CloneDiff' )->getFullURL( "remoteWiki=$i&pageName=" . $wgTitle->getFullText() )
+				];
 			}
 		}
 
