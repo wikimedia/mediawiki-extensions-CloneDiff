@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"clonediff": "وُچھو کُلوٗن ڈِففس",
+	"clonediff-docu": "چُنِیوٚ اَکھ ناوٕجاے تہٕ/یا زٲژ تہٕ پتہٕ دبٲوِو \"{{int:clonediff-continue}}\" تمی سٲری فرقہٕ وُچھنہٕ کھٲترٕ یِمہٕ زن صفن ہِیوٚنٛد جُنٛڈ چھُ بہ درمیان یَتھ وِکیٖیس تہٕ کُلوٗنس.",
+	"clonediff-nonamespace": "تۄٚہِہ چھو چُنُن یاتہِ اَکھ ناوٕجاے نتہٕ اَکھ زٲژ (یا دۄٚنہٕ وَے).",
+	"clonediff-categorysearch": "جایِہ بدلاوُن صرف تہٕ صرف زٲژ مٕنٛ:",
+	"clonediff-choosepagesforimport": "دِنہٕ آمٕتی صفو مٕنٛز أنِیوٚ کانٛہہ تہِ صفہٕ:",
+	"clonediff-import": "دَرآمَد",
+	"clonediff-success": "{{PLURAL:$1|اَکھ صفہٕ|$1 صفہٕ}} یِنی أَنٔنہٕ.",
+	"clonediff-nosuchcategory": "کانٛہہ تہِ زٲژ چھنہٕ یَمہِ ناوٕ \"$1\" سٕتی موجود.",
+	"clonediff-return": "واپس گٕژھیوٚ فارمس پؠٹھ.",
+	"clonediff-continue": "جأری تھٲوِو",
+	"clonediff-editsummary": "بیٚکہِ وِکی پؠٹھہٕ أنِیوٚ بذٕریعہ کُلوٗن ڈِف",
+	"right-clonediff": "سِٹرِنٛگ بدلہٕ بنٲوِو سٲرسٕی وِکیٖیس پؠٹھ",
+	"action-clonediff": "سِٹرِنٛگ بدلہٕ بنٲوِو سٲرسٕی وِکیٖیس پؠٹھ"
+}
