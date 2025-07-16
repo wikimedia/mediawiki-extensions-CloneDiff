@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"clonediff": "Клонан башхалла хьажа",
+	"clonediff-desc": "Леррина агӀо ло [[Special:CloneDiff]] цигахь администраторийн аьтто бу карарчу викин а, кхечу викин а агӀонашна йукъара башхаллаш хьажа, кхечу вики тӀера агӀонаш импорт йан.",
+	"clonediff-docu": "ЦӀерийн меттиг а,/йа категори а схьахаржа, тӀаккха «{{int:clonediff-continue}}» тӀетаӀайе, цу агӀонийн тобанехь йерриг башхаллаш ган хӀокху викина а, клонна а йукъахь.",
+	"clonediff-nonamespace": "ЦӀерийн меттиг йа категори (йа ший а) харжа йеза ахь.",
+	"clonediff-categorysearch": "Категорехь бен ма хийца:",
+	"clonediff-choosepagesforimport": "Импорт йе муьлхха а агӀонех:",
+	"clonediff-invertselections": "Харжаран инверт йе",
+	"clonediff-import": "Импорт йан",
+	"clonediff-success": "{{PLURAL:$1|$1 агӀонаш импорт йийр йу}}.",
+	"clonediff-nosuchcategory": "«$1» цӀе йолу категори йац.",
+	"clonediff-return": "Формин тӀегӀо.",
+	"clonediff-continue": "Кхин дӀа",
+	"clonediff-editsummary": "Кхечу вики чуьра импорт йан CloneDiff чухула",
+	"right-clonediff": "Йерриг вики тӀехь текст хийцар кхочушдар",
+	"action-clonediff": "йерриг вики тӀехь текст хийцар кхочушдар"
+}
