@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Smtchahal"
+			"Smtchahal",
+			"Saurmandal"
 		]
 	},
 	"clonediff-import": "आयात करें",
-	"clonediff-continue": "जारी रखें"
+	"clonediff-continue": "जारी रखें",
+	"right-clonediff": "पूरे विकि पर स्ट्रिंग्स में बदलाव करना",
+	"action-clonediff": "पूरे विकि पर स्ट्रिंग्स में बदलाव करने"
 }
