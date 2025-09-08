@@ -1,10 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"clonediff-categorysearch": "Nëmmen an der Kategorie ersetzen:",
+	"clonediff-invertselections": "Auswiel ëmdréinen",
 	"clonediff-import": "Importéieren",
 	"clonediff-success": "{{PLURAL:$1|Eng Säit gëtt|$1 Säite ginn}} importéiert.",
 	"clonediff-nosuchcategory": "Et gëtt keng Kategorie mam Numm \"$1\".",
