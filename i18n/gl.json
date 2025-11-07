@@ -2,9 +2,23 @@
 	"@metadata": {
 		"authors": [
 			"Elisardojm",
-			"Iváns"
+			"Iváns",
+			"Toliño"
 		]
 	},
+	"clonediff": "Ver as diferenzas do clon",
+	"clonediff-desc": "Ofrece unha [[Special:CloneDiff|páxina especial]] que permite á administración ver as diferenzas entre as páxinas do wiki actual e doutro wiki e, ademais, permite que importen páxinas do outro wiki.",
+	"clonediff-docu": "Escolle un espazo de nomes e/ou unha categoría e despois preme en «{{int:clonediff-continue}}» para ver todas as diferenzas nese conxunto de páxinas entre este wiki e o clon.",
+	"clonediff-nonamespace": "Debes seleccionar un espazo de nomes ou unha categoría (ou ambos).",
+	"clonediff-categorysearch": "Substituír só na categoría:",
+	"clonediff-choosepagesforimport": "Importar calquera das seguintes páxinas:",
+	"clonediff-invertselections": "Inverter as seleccións",
 	"clonediff-import": "Importar",
-	"clonediff-continue": "Continuar"
+	"clonediff-success": "{{PLURAL:$1|Vaise importar unha páxina.|Vanse importar $1 páxinas.}}",
+	"clonediff-nosuchcategory": "Non existe ningunha categoría co nome «$1».",
+	"clonediff-return": "Volver ao formulario.",
+	"clonediff-continue": "Continuar",
+	"clonediff-editsummary": "Importar desde outro wiki mediante CloneDiff",
+	"right-clonediff": "Facer substitucións de texto en todo o wiki",
+	"action-clonediff": "facer substitucións de texto en todo o wiki"
 }
