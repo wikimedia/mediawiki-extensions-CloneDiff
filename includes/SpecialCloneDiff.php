@@ -87,8 +87,10 @@ class SpecialCloneDiff extends SpecialPage {
 			);
 		}
 
-		$out->addHTML( '<p>' . Xml::checkLabel( 'Include pages that only exist locally', "viewLocalOnly", "viewLocalOnly", true ) . '</p>' );
-		$out->addHTML( '<p>' . Xml::checkLabel( 'Include pages that only exist remotely', "viewRemoteOnly", "viewRemoteOnly", true ) . '</p>' );
+		$out->addHTML( '<p>' . Html::check( "viewLocalOnly", true, [ 'id' => "viewLocalOnly" ] )
+			. "\u{00A0}" . Html::label( 'Include pages that only exist locally', "viewLocalOnly" ) . '</p>' );
+		$out->addHTML( '<p>' . Html::check( "viewRemoteOnly", true, [ 'id' => "viewRemoteOnly" ] )
+			. "\u{00A0}" . Html::label( 'Include pages that only exist remotely', "viewRemoteOnly" ) . '</p>' );
 
 		// The interface is heavily based on the one in Special:Search.
 		$namespaces = MediaWikiServices::getInstance()->getSearchEngineConfig()
@@ -123,7 +125,8 @@ class SpecialCloneDiff extends SpecialPage {
 		//$tables = $this->categoryTables( $categories );
 		$categoriesText = '';
 		foreach ( $categories as $cat ) {
-			$categoryCheck = Xml::checkLabel( $cat, "categories[$cat]", "mw-search-category-$cat" );
+			$categoryCheck = Html::check( "categories[$cat]", false, [ 'id' => "mw-search-category-$cat" ] )
+				. "\u{00A0}" . Html::label( $cat, "mw-search-category-$cat" );
 			$categoriesText .= '<span style="float: left; width: 170px; padding-right: 15px;">' .
 				$categoryCheck . '</span>';
 		}
@@ -134,7 +137,7 @@ class SpecialCloneDiff extends SpecialPage {
 		);
 
 		$out->addHTML(
-			Xml::submitButton( $this->msg( 'clonediff-continue' )->parse() ) .
+			Html::submitButton( $this->msg( 'clonediff-continue' )->parse(), [] ) .
 			Xml::closeElement( 'form' )
 		);
 	}
@@ -292,7 +295,7 @@ class SpecialCloneDiff extends SpecialPage {
 				$title = Title::newFromText( $pageName );
 			}
 			if ( $remoteText != $localText && $remoteText != '' ) {
-				$out->addHTML( Xml::check( $pageName, true ) . ' ' );
+				$out->addHTML( Html::check( $pageName, true ) . ' ' );
 			}
 			$out->addHTML( "<big><b>$pageName</b></big><br />" );
 			if ( $remoteText == null ) {
@@ -336,7 +339,7 @@ class SpecialCloneDiff extends SpecialPage {
 		}
 
 		$out->addHTML(
-			Xml::submitButton( $this->msg( 'clonediff-import' )->text() ) .
+			Html::submitButton( $this->msg( 'clonediff-import' )->text(), [] ) .
 			Xml::closeElement( 'form' )
 		);
 
