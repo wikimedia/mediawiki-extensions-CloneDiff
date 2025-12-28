@@ -51,7 +51,7 @@ class SpecialCloneDiff extends SpecialPage {
 		$out = $this->getOutput();
 
 		$out->addHTML(
-			Xml::openElement(
+			Html::openElement(
 				'form',
 				[
 					'id' => 'powersearch',
@@ -111,7 +111,7 @@ class SpecialCloneDiff extends SpecialPage {
 		}
 		$out->addHTML(
 			"<fieldset id=\"mw-searchoptions\">\n" .
-			Xml::tags( 'h4', null, "Search in namespace:" ) .
+			Html::rawElement( 'h4', [], "Search in namespace:" ) .
 			"$nsText\n</fieldset>"
 		);
 
@@ -134,13 +134,13 @@ class SpecialCloneDiff extends SpecialPage {
 		}
 		$out->addHTML(
 			"<fieldset id=\"mw-searchoptions\">\n" .
-			Xml::tags( 'h4', null, "Search in categories:" ) .
+			Html::rawElement( 'h4', [], "Search in categories:" ) .
 			"$categoriesText\n</fieldset>"
 		);
 
 		$out->addHTML(
 			Html::submitButton( $this->msg( 'clonediff-continue' )->parse(), [] ) .
-			Xml::closeElement( 'form' )
+			Html::closeElement( 'form' )
 		);
 	}
 
@@ -260,7 +260,7 @@ class SpecialCloneDiff extends SpecialPage {
 			'action' => $this->getPageTitle()->getFullURL()
 		];
 		$out->addHTML(
-			Xml::openElement( 'form', $formOpts ) . "\n" .
+			Html::openElement( 'form', $formOpts ) . "\n" .
 			Html::hidden( 'title', $this->getPageTitle()->getPrefixedText() ) .
 			Html::hidden( 'import', 1 ) .
 			Html::hidden( 'remoteWiki', $selectedWiki )
@@ -342,7 +342,7 @@ class SpecialCloneDiff extends SpecialPage {
 
 		$out->addHTML(
 			Html::submitButton( $this->msg( 'clonediff-import' )->text(), [] ) .
-			Xml::closeElement( 'form' )
+			Html::closeElement( 'form' )
 		);
 
 		if ( $showNavigation ) {
@@ -511,7 +511,7 @@ class SpecialCloneDiff extends SpecialPage {
 			if ( $showMessage ) {
 				$out->addWikiMsg( 'specialpage-empty' );
 			}
-			$out->addHTML( Xml::closeElement( 'div' ) );
+			$out->addHTML( Html::closeElement( 'div' ) );
 		}
 	}
 
