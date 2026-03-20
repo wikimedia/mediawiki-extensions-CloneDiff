@@ -605,8 +605,6 @@ class SpecialCloneDiff extends SpecialPage {
 			if (!$data) {
 				throw new MWException( "Error getting data from server: " . curl_error($ch) );
 			}
-
-			curl_close($ch);
 		} catch ( Exception $e ) {
 			throw new MWException( "Error getting data from server: " . $e->getMessage() . "\nURL: " . $url . "\nParams: " . $post_params );
 		}
