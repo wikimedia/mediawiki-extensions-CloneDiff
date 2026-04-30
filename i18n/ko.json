@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Ykhwong"
+			"Ykhwong",
+			"Tensama0415"
 		]
 	},
+	"clonediff": "클론 차이 보기",
+	"clonediff-desc": "관리자가 현재 위키와 다른 위키의 문서들 간의 차이점을 보고 다른 위키에서 문서를 가져올 수 있도록 [[Special:CloneDiff|특수 페이지]]를 제공합니다.",
 	"clonediff-docu": "이름공간 및 분류를 선택한 다음 \"{{int:clonediff-continue}}\"를 누르면 위키와 복제 위키 간 문서들 모임 간의 차이를 볼 수 있습니다.",
 	"clonediff-nonamespace": "이름공간이나 분류를 (또는 둘 다) 선택해야 합니다.",
 	"clonediff-categorysearch": "다음 분류에서만 바꾸기:",
