@@ -560,12 +560,7 @@ class SpecialCloneDiff extends SpecialPage {
 			}
 		}
 
-		if ( method_exists( MediaWikiServices::class, 'getJobQueueGroup' ) ) {
-			// MW 1.37+
-			MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
-		} else {
-			JobQueueGroup::singleton()->push( $jobs );
-		}
+		MediaWikiServices::getInstance()->getJobQueueGroup()->push( $jobs );
 
 		$count = $this->getLanguage()->formatNum( count( $jobs ) );
 		$out->addWikiMsg( 'clonediff-success', $count );
