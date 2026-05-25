@@ -12,7 +12,7 @@ class SpecialCloneDiff extends SpecialPage {
 	const IN_BOTH = 2;
 
 	public function __construct() {
-		parent::__construct( 'CloneDiff', 'clonediff' );
+		parent::__construct( 'CloneDiff' );
 	}
 
 	function execute( $query ) {
