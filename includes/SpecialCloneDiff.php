@@ -121,8 +121,17 @@ class SpecialCloneDiff extends SpecialPage {
 		);
 
 		$dbr = $this->loadBalancer->getConnection( DB_REPLICA );
-		$categorylinks = $dbr->tableName( 'categorylinks' );
-		$res = $dbr->query( "SELECT DISTINCT cl_to FROM $categorylinks" );
+		// MW 1.45+
+		$useTargetID = !$dbr->fieldExists( 'categorylinks', 'cl_to' );
+
+		if ( $useTargetID ) {
+			$linktarget = $dbr->tableName( 'linktarget' );
+			$res = $dbr->query( "SELECT DISTINCT lt_title FROM $linktarget" );
+		} else {
+			$categorylinks = $dbr->tableName( 'categorylinks' );
+			$res = $dbr->query( "SELECT DISTINCT cl_to FROM $categorylinks" );
+		}
+
 		$categories = array();
 		foreach ( $res as $row ) {
 			$categories[] = str_replace( '_', ' ', $row->cl_to );
@@ -154,6 +163,8 @@ class SpecialCloneDiff extends SpecialPage {
 		$tables = [ 'page' ];
 		$vars = [ 'page_id', 'page_namespace', 'page_title' ];
 		$conds = [];
+		$joinConds = [];
+
 		if ( $this->namespace !== null ) {
 			$conds['page_namespace'] = $this->namespace;
 		}
@@ -164,8 +175,17 @@ class SpecialCloneDiff extends SpecialPage {
 				$categoryStrings[] = "'" . str_replace( ' ', '_', $category ) . "'";
 			}
 			$tables[] = 'categorylinks';
-			$conds[] = 'page_id = cl_from';
-			$conds[] = 'cl_to IN (' . implode( ', ', $categoryStrings ) . ')';
+			$joinConds[] = [ 'JOIN', 'page_id = cl_from' ];
+
+			// MW 1.45+
+			$useTargetID = !$dbr->fieldExists( 'categorylinks', 'cl_to' );
+			if ( $useTargetID ) {
+				$tables[] = 'linktarget';
+				$joinConds[] = [ 'JOIN', 'cl_target_id = lt_id' ];
+				$conds[] = 'lt_title IN (' . implode( ', ', $categoryStrings ) . ')';
+			} else {
+				$conds[] = 'cl_to IN (' . implode( ', ', $categoryStrings ) . ')';
+			}
 		}
 
 		$options = [ 'ORDER BY' => 'page_namespace, page_title' ];
