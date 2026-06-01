@@ -10,10 +10,10 @@ local wiki.
 
 == Download ==
 
-To download the code, call the following in the /extensions
+To download the code, call the following in the extensions/
 directory:
 
-git clone https://bitbucket.org/wikiworksdev/clonediff.git CloneDiff
+git clone https://gerrit.wikimedia.org/r/mediawiki/extensions/CloneDiff
 
 
 == Installation ==
