@@ -3,7 +3,8 @@
 		"authors": [
 			"Klaas van Buiten",
 			"KlaasZ4usV",
-			"Patio"
+			"Patio",
+			"Siebrand"
 		]
 	},
 	"clonediff": "Zie kloonverschillen",
@@ -12,7 +13,7 @@
 	"clonediff-nonamespace": "U dient een naamruimte en/of een categorie te selecteren.",
 	"clonediff-categorysearch": "Vervang alleen in categorie:",
 	"clonediff-choosepagesforimport": "Voer enige van de volgende pagina's in:",
-	"clonediff-invertselections": "Draai selecties om",
+	"clonediff-invertselections": "Selecties omkeren",
 	"clonediff-import": "Invoeren",
 	"clonediff-success": "{{PLURAL:$1|Één pagina zal|$1 pagina's zullen}} worden ingevoerd.",
 	"clonediff-nosuchcategory": "Er is geen categorie met de naam \"$1\".",
