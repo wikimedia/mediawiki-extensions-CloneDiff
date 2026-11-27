@@ -4,6 +4,19 @@
 			"شاه زمان پټان"
 		]
 	},
+	"clonediff": "د همبڼۍ توپيرونه وگورئ",
+	"clonediff-desc": "يو [[Special:CloneDiff|ځانگړی مخ]] چمتو کوي؛ ترڅو پازوالانو ته اجازه ورکړي چې د اوسني او بل ويکي د مخونو توپيرونه وگوري او مخونه راولېږدول.",
+	"clonediff-docu": "نوم‌تشيال او/يا وېشنيزه خوښه کړئ او بيا \"{{int:clonediff-continue}}\" ته ټک ورکړئ؛ ترڅو د دې ويکي او همبڼې ترمنځ د مخونو دې ټولگه کې ټول توپيرونه وگورئ.",
+	"clonediff-nonamespace": "تاسو بايد يا نوم‌تشيال يا وېشنيزه (يا دواړه) غوره کړئ.",
+	"clonediff-categorysearch": "يوازې په وېشنيزه کې ځايناستول:",
+	"clonediff-choosepagesforimport": "له لاندې مخونو څخه يو راولېږدوئ:",
+	"clonediff-invertselections": "ټاکنې سرچپه کول",
+	"clonediff-import": "رالېږدول",
+	"clonediff-success": "{{PLURAL:$1|يو مخ|$1 مخونه}} به راولېږدول شي.",
+	"clonediff-nosuchcategory": "\"$1\" نوم باندې هېڅ وېشنيزه نشته.",
+	"clonediff-return": "بېرته فورم ته راستنېدل.",
+	"clonediff-continue": "دوام ورکول",
+	"clonediff-editsummary": "د همبڼې‌توپير له لارې يې له بل ويکي څخه رالېږدول",
 	"right-clonediff": "ټوله ويکي کې د لړۍ ځايناستول",
 	"action-clonediff": "ټوله ويکي کې د لړۍ ځايناستول"
 }
